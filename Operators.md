@@ -455,4 +455,25 @@ p=5, q=-6. z=5/6 + (-6*5)/2 = 0 + -15 = -15 (check exact math).
 ---
 [🔼 Back to Top](#c-operators) | [⬅ Back to Table of Contents](README.md)
 
+<style>
+#topBtn {
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #007acc;
+  color: white;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 8px;
+}
+#topBtn:hover {
+  background-color: #555;
+}
+</style>
+
+<button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" id="topBtn">🔼 Top</button>
 
