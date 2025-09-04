@@ -1,10 +1,13 @@
-1.#include<stdio.h>
+1.
+'''c
+#include<stdio.h>
  int main() 
 { 
 char name='E';
  name=name+'A'-13;
  printf("%c",name);
- }
+ }c'''
+
  2.#include <stdio.h>
  int main() 
 { 
