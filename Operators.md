@@ -455,6 +455,13 @@ p=5, q=-6. z=5/6 + (-6*5)/2 = 0 + -15 = -15 (check exact math).
 ---
 [🔼 Back to Top](#c-operators) | [⬅ Back to Table of Contents](README.md)
 
+# C Operators – Programs, Outputs, and Explanations
+
+... all your program code, outputs, and explanations ...
+
+---
+
+<!-- Floating Back to Top button -->
 <style>
 #topBtn {
   position: fixed;
@@ -474,6 +481,8 @@ p=5, q=-6. z=5/6 + (-6*5)/2 = 0 + -15 = -15 (check exact math).
   background-color: #555;
 }
 </style>
+
+<button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" id="topBtn">🔼 Top</button>
 
 <button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" id="topBtn">🔼 Top</button>
 
