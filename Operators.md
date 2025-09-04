@@ -3,7 +3,35 @@
 This file contains 50 example programs in C.
 
 ---
+# C Operator Precedence and Order of Evaluation
 
+This table shows C operators, their precedence, and associativity.
+
+| Operator                            | Associativity  | Notes |
+|-------------------------------------|----------------|-------|
+| `() [] -> . ++ --`                  | left to right  | [1]   |
+| `! ~ ++ -- + - (type) * & sizeof`   | right to left  | [2]   |
+| `* / %`                             | left to right  |       |
+| `+ -`                               | left to right  |       |
+| `<< >>`                             | left to right  |       |
+| `< <= > >=`                         | left to right  |       |
+| `== !=`                             | left to right  |       |
+| `&`                                 | left to right  |       |
+| `^`                                 | left to right  |       |
+| `\|`                                | left to right  |       |
+| `&&`                                | left to right  |       |
+| `\|\|`                                | left to right  |       |
+| `?:`                                | right to left  |       |
+| `= += -= *= /= %= <<= >>= &= ^= \|=` | right to left  |       |
+| `,`                                 | left to right  |       |
+
+---
+
+### Notes
+1. The `++` and `--` operators at this precedence level are the **postfix** versions.  
+2. The `++` and `--` operators at this precedence level are the **prefix** versions.  
+
+---
 ## Program 1
 
 ```c
