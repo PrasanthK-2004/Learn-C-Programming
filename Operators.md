@@ -34,7 +34,6 @@ This table shows C operators, their precedence, and associativity.
 2. The `++` and `--` operators at this precedence level are the **prefix** versions.  
 
 ---
-[🔼 Back to Top](#c-operators) | [⬅ Back to Table of Contents](README.md)
 
 ## Program 1
 
