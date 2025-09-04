@@ -456,20 +456,3 @@ p=5, q=-6. z=5/6 + (-6*5)/2 = 0 + -15 = -15 (check exact math).
 [🔼 Back to Top](#c-operators) | [⬅ Back to Table of Contents](README.md)
 
 ---
-<h1>C Operators Programs</h1>
-
-<p>Scroll down to see buttons.</p>
-
-<!-- Top Button -->
-<a href="#top" style="position:fixed;bottom:80px;right:20px;background:#007acc;color:white;padding:10px;border-radius:6px;text-decoration:none;">🔼 Top</a>
-
-<!-- Bottom Button -->
-<a href="#bottom" style="position:fixed;bottom:40px;right:20px;background:#007acc;color:white;padding:10px;border-radius:6px;text-decoration:none;">🔽 Bottom</a>
-
-<!-- Back Button -->
-<a href="README.md" style="position:fixed;bottom:40px;left:20px;background:#007acc;color:white;padding:10px;border-radius:6px;text-decoration:none;">⬅️ Back</a>
-
-<a name="top"></a>
-... your whole content here ...
-<a name="bottom"></a>
----
