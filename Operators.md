@@ -455,34 +455,38 @@ p=5, q=-6. z=5/6 + (-6*5)/2 = 0 + -15 = -15 (check exact math).
 ---
 [🔼 Back to Top](#c-operators) | [⬅ Back to Table of Contents](README.md)
 
-# C Operators – Programs, Outputs, and Explanations
-
-... all your program code, outputs, and explanations ...
+# 📖 C Operators Programs
 
 ---
 
-<!-- Floating Back to Top button -->
+<!-- Navigation Buttons -->
 <style>
-#topBtn {
+.nav-btn {
   position: fixed;
-  bottom: 20px;
-  right: 30px;
   z-index: 99;
-  font-size: 18px;
+  font-size: 16px;
   border: none;
   outline: none;
   background-color: #007acc;
   color: white;
   cursor: pointer;
-  padding: 12px;
-  border-radius: 8px;
+  padding: 10px;
+  border-radius: 6px;
+  opacity: 0.8;
 }
-#topBtn:hover {
-  background-color: #555;
+.nav-btn:hover {
+  background-color: #444;
+  opacity: 1.0;
 }
+#topBtn { bottom: 70px; right: 30px; }
+#bottomBtn { bottom: 20px; right: 30px; }
+#backBtn { bottom: 20px; left: 30px; }
 </style>
 
-<button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" id="topBtn">🔼 Top</button>
+<button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="nav-btn" id="topBtn">🔼 Top</button>
 
-<button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" id="topBtn">🔼 Top</button>
+<button onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});" class="nav-btn" id="bottomBtn">🔽 Bottom</button>
 
+<a href="README.md">
+  <button class="nav-btn" id="backBtn">⬅️ Back</button>
+</a>
