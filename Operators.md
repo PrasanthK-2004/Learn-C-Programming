@@ -1,4 +1,4 @@
-[⬅ Back to Table of Contents](README.md)
+[🔽 Go to Bottom](#L456)[⬅ Back to Table of Contents](README.md)
 # C Operators
 
 This file contains 50 example programs in C.
@@ -455,38 +455,4 @@ p=5, q=-6. z=5/6 + (-6*5)/2 = 0 + -15 = -15 (check exact math).
 ---
 [🔼 Back to Top](#c-operators) | [⬅ Back to Table of Contents](README.md)
 
-# 📖 C Operators Programs
-
 ---
-
-<!-- Navigation Buttons -->
-<style>
-.nav-btn {
-  position: fixed;
-  z-index: 99;
-  font-size: 16px;
-  border: none;
-  outline: none;
-  background-color: #007acc;
-  color: white;
-  cursor: pointer;
-  padding: 10px;
-  border-radius: 6px;
-  opacity: 0.8;
-}
-.nav-btn:hover {
-  background-color: #444;
-  opacity: 1.0;
-}
-#topBtn { bottom: 70px; right: 30px; }
-#bottomBtn { bottom: 20px; right: 30px; }
-#backBtn { bottom: 20px; left: 30px; }
-</style>
-
-<button onclick="window.scrollTo({top: 0, behavior: 'smooth'});" class="nav-btn" id="topBtn">🔼 Top</button>
-
-<button onclick="window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});" class="nav-btn" id="bottomBtn">🔽 Bottom</button>
-
-<a href="README.md">
-  <button class="nav-btn" id="backBtn">⬅️ Back</button>
-</a>
