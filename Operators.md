@@ -1,6 +1,6 @@
 # C Operators
 
-This file contains 50 C operator programs.
+This file contains 50 example programs in C.
 
 ---
 
