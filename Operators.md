@@ -450,6 +450,6 @@ int main()
 p=5, q=-6. z=5/6 + (-6*5)/2 = 0 + -15 = -15 (check exact math).
 
 ---
-[🔼 Back to Top](#C Operators) | [⬅ Back to Table of Contents](README.md)
+[🔼 Back to Top](#c-operators) | [⬅ Back to Table of Contents](README.md)
 
 
