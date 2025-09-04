@@ -1,4 +1,4 @@
-[🔽 Go to Bottom](Operators.md#L456) | [⬅ Back to Table of Contents](README.md)
+[🔽 Go to Bottom](#bottom) | [⬅ Back to Table of Contents](README.md)
 # C Operators
 
 This file contains 50 example programs in C.
