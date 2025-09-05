@@ -1107,12 +1107,18 @@ int main()
 **Output:**
 
 ```
--5 6
+-5 -1
 ```
 
 **Explanation:**
 
-XOR-based swapping trick
+| Step | Operation  | p  | q  |
+| ---- | ---------- | -- | -- |
+| 0    | Initial    | 5  | -6 |
+| 1    | p ^= p - q | 14 | -6 |
+| 2    | q ^= p     | 14 | -1 |
+| 3    | p ^= -p    | -5 | -1 |
+
 
 ---
 
