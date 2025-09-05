@@ -16,7 +16,7 @@
 
 
 ### ⚠Note:
-1. Exact ranges may differ slightly depending on the compiler and platform. sizeof() can be used to check size in bytes at runtime.
+1. Exact ranges may differ slightly depending on the compiler and platform. `sizeof()` can be used to check size in bytes at runtime.
 2. Format specifiers must match the datatype exactly. Using the wrong specifier can lead to undefined behavior.
 ---
 
