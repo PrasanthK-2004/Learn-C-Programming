@@ -12,7 +12,7 @@
 | `long double`   | 12 or 16     | 3.4E-4932 to 1.1E+4932 (approx)                                                                                      | `%Lf`                                  | Extended precision decimal       |
 
 
-###⚠ Note:
+### ⚠Note:
 1. Exact ranges may differ slightly depending on the compiler and platform. sizeof() can be used to check size in bytes at runtime.
 2. Format specifiers must match the datatype exactly. Using the wrong specifier can lead to undefined behavior.
 ---
@@ -41,7 +41,7 @@ This table shows C operators, their precedence, and associativity.
 
 ---
 
-### Note:
+### ⚠Note:
 1. The `++` and `--` operators at this precedence level are the **postfix** versions.  
 2. The `++` and `--` operators at this precedence level are the **prefix** versions.  
 
