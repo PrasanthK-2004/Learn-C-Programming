@@ -1,4 +1,7 @@
 # Data Types
+---
+
+[🔽 Go to Bottom](#L50) | [⬅ Back to Table of Contents](README.md)
 
 | Datatype        | Size (bytes) | Range (Typical)                                                                                                      | Format Specifier                       | Description                      |
 | --------------- | ------------ | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------- | -------------------------------- |
@@ -40,9 +43,12 @@ This table shows C operators, their precedence, and associativity.
 | `,`                                 | left to right  |       |
 
 ---
-
 ### ⚠Note:
 1. The `++` and `--` operators at this precedence level are the **postfix** versions.  
 2. The `++` and `--` operators at this precedence level are the **prefix** versions.  
+
+---
+
+[🔽 Go to Bottom](#data-types) | [⬅ Back to Table of Contents](README.md)
 
 ---
