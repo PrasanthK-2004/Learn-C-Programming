@@ -359,7 +359,8 @@ void main()
 ```
 
 **Explanation:**  
-Assignment inside equality. `b=a=10`. Then check `a==10` → true → 1.
+Assignment inside equality. `b=a=10`. 
+Then check `a==10` → true → 1.
 
 ---
 
@@ -449,6 +450,17 @@ int main()
 -15
 ```
 
+**Explanation:**
+++p → increases p from 4 to 5.
+++p / x = 5 / 6 → integer division → 0
+
+--q → decreases q from -5 to -6.
+--q * p / y = (-6) * 5 / 2 = -30 / 2 = -15
+
+Add both parts: 0 + (-15) = -15
+
+---
+
 ## Program 19
 
 ```c
@@ -491,9 +503,9 @@ int main()
 
 **Explanation:**
 
-* `a==5` → false → 0
-* `a=5` → assigns 5 → 5
-* `++a` → increments → 6
+`a==5` → false → 0
+ `a=5` → assigns 5 → 5
+ `++a` → increments → 6
 
 ---
 
@@ -519,8 +531,8 @@ int main()
 
 **Explanation:**
 
-* `p+q` → promoted to `float` → 8 bytes on 64-bit systems
-* `sizeof(sizeof(6.7))` → `sizeof(size_t)` → 8 bytes
+ `p+q` → promoted to `float` → 8 bytes on 64-bit systems
+ `sizeof(sizeof(6.7))` → `sizeof(size_t)` → 8 bytes
 
 ---
 
@@ -544,8 +556,8 @@ ffffff8a
 
 **Explanation:**
 
-* `~0x75 = 0x8a` → left shift by 2 → `0x228`
-* Printed as signed 32-bit int in hex: `ffffff8a`
+ `~0x75 = 0x8a` → left shift by 2 → `0x228`
+ Printed as signed 32-bit int in hex: `ffffff8a`
 
 ---
 
@@ -569,7 +581,7 @@ int main()
 
 **Explanation:**
 
-* `y/=2` → 12, `y=y/2` → 6, sum → 18
+ `y/=2` → 12, `y=y/2` → 6, sum → 18
 
 ---
 
@@ -592,8 +604,8 @@ int main()
 
 **Explanation:**
 
-* `a>b` → 1 (true)
-* `1 >= c` → 1
+ `a>b` → 1 (true)
+ `1 >= c` → 1
 
 ---
 
@@ -616,15 +628,19 @@ int main()
 
 **Explanation:**
 
-* `x^32` → toggle bits → 37
-* `x|7` → OR operation → 7
-* `~x` → bitwise NOT → -6
+ `x^32` → toggle bits → 37
+ `x|7` → OR operation → 7
+ `~x` → bitwise NOT → -6
 
 ---
 
 ## Program 26
+Which operator is used to toggle a particular bit in a number?
 
 **Answer:** `^` (XOR) toggles a particular bit in a number.
+```
+num = num ^ (1 << n);
+```
 
 ---
 
@@ -649,8 +665,8 @@ int main()
 
 **Explanation:**
 
-* `9/2` → integer division → 4 → converted to float 4.0
-* `z = 4.0 + 2.5/2 = 4.0 + 1.25 = 5.25`
+`9/2` → integer division → 4 → converted to float 4.0
+ `z = 4.0 + 2.5/2 = 4.0 + 1.25 = 5.25`
 
 ---
 
@@ -662,7 +678,7 @@ int main()
 {
     int a=0xab;
     int b=0xab<<4;
-    b=c>>8; // c undefined → compile error
+    b=c>>8; 
     printf("%d\n",b);
 }
 ```
@@ -692,8 +708,8 @@ int main()
 
 **Explanation:**
 
-* `a ||= 2` → sets `a` to 1 if non-zero → 1
-* `a &&=2` → evaluates to 2
+ `a ||= 2` → sets `a` to 1 if non-zero → 1
+ `a &&=2` → evaluates to 2
 
 ---
 
@@ -717,7 +733,7 @@ fffffc01
 
 **Explanation:**
 
-* Prints signed negative numbers in hex/octal using 2’s complement.
+Prints signed negative numbers in hex/octal using 2’s complement.
 
 ---
 
@@ -741,7 +757,7 @@ int main()
 
 **Explanation:**
 
-* `i>>2 + j++` → evaluates left, then `|| ++k` → logical OR → 1
+ `i>>2 + j++` → evaluates left, then `|| ++k` → logical OR → 1
 
 ---
 
@@ -782,8 +798,8 @@ int main()
 
 **Explanation:**
 
-* Operator precedence: `<<` before `+`
-* Result ANDed with 0xaf → OR with 5 → 5
+Operator precedence: `<<` before `+`
+Result ANDed with 0xaf → OR with 5 → 5
 
 ---
 
@@ -809,8 +825,8 @@ x=192 ,y=48
 
 **Explanation:**
 
-* `x = 12 * (12+4) = 192`
-* `z*=3 → 36`, `y+=36 → 48`
+ `x = 12 * (12+4) = 192`
+ `z*=3 → 36`, `y+=36 → 48`
 
 ---
 
@@ -887,8 +903,8 @@ int main()
 
 **Explanation:**
 
-* `f=0` (integer division)
-* `0<0.45` → 1 → shift left 3 → 8
+ `f=0` (integer division)
+ `0<0.45` → 1 → shift left 3 → 8
 
 ---
 
@@ -1050,7 +1066,7 @@ a >>= 15 → 0x10000
 
 ---
 
-## Program 45
+## Program 44
 
 ```c
 #include<stdio.h>
@@ -1075,7 +1091,7 @@ Bit is set
 
 ---
 
-## Program 46
+## Program 45
 
 ```c
 #include <stdio.h>
@@ -1100,7 +1116,7 @@ XOR-based swapping trick
 
 ---
 
-## Program 47
+## Program 46
 
 ```c
 #include<stdio.h>
@@ -1119,11 +1135,17 @@ int main()
 
 **Explanation:**
 
-Comma operator → evaluates left to right, last value a=4
+a += 3 → a = 1 + 3 = 4
+
+5 → ignored, just evaluated
+
+a → current value of a is 4 → this is the result of the comma operator
+
+So, (a += 3, 5, a) evaluates to 4.
 
 ---
 
-## Program 48
+## Program 47
 
 ```c
 #include<stdio.h>
@@ -1148,7 +1170,7 @@ a/b = 10/20=0 → false → select c=30
 
 ---
 
-## Program 49
+## Program 48
 
 ```c
 x %= 7.0 % 2
@@ -1160,7 +1182,7 @@ x %= 7.0 % 2
 
 ---
 
-## Program 50
+## Program 49
 
 ```c
 #include <stdio.h>
@@ -1184,6 +1206,50 @@ int main() {
 0x2 << 31 = 0x40000000
 
 Shift right 15 → 0x2000
+
+---
+
+## Program 50
+
+Write a program to check whether the particular bit is set or not in a given integer.
+
+```c
+#include <stdio.h>
+int main() {
+    int num, bit;
+    // Input number and bit position
+    printf("Enter an integer: ");
+    scanf("%d", &num);
+    printf("Enter bit position to check (0 for LSB): ");
+    scanf("%d", &bit);
+    // Check if the bit is set
+    if (num & (1 << bit)) {
+        printf("Bit %d is SET in %d\n", bit, num);
+    } else {
+        printf("Bit %d is NOT SET in %d\n", bit, num);
+    }
+
+    return 0;
+}
+```
+
+**Output:**
+
+```
+Enter an integer: 5
+Enter bit position to check (0 for LSB): 2
+Bit 2 is SET in 5
+```
+
+**Explanation:**
+
+(1 << bit) → creates a mask with only the desired bit set.
+
+num & mask → performs bitwise AND:
+
+If result ≠ 0 → bit is set
+
+If result = 0 → bit is not set
 
 ---
 
