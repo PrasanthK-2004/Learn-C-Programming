@@ -1,7 +1,7 @@
 # Data Types
 ---
 
-[🔽 Go to Bottom](#c-operator) | [⬅ Back to Table of Contents](README.md)
+[🔽 Go to Bottom](#c-operator-precedence-and-order-of-evaluation) | [⬅ Back to Table of Contents](README.md)
 
 | Datatype        | Size (bytes) | Range (Typical)                                                                                                      | Format Specifier                       | Description                      |
 | --------------- | ------------ | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------- | -------------------------------- |
