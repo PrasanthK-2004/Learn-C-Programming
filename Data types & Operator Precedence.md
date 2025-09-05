@@ -1,4 +1,4 @@
-## Data Types
+# Data Types
 
 | Datatype        | Size (bytes) | Range (Typical)                                                                                                      | Description                      |
 | --------------- | ------------ | -------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
@@ -10,5 +10,35 @@
 | `float`         | 4            | 1.2E-38 to 3.4E+38 (approx)                                                                                          | Single-precision decimal numbers |
 | `double`        | 8            | 2.3E-308 to 1.7E+308 (approx)                                                                                        | Double-precision decimal numbers |
 | `long double`   | 12 or 16     | 3.4E-4932 to 1.1E+4932 (approx)                                                                                      | Extended precision decimal       |
+
+---
+
+# C Operator Precedence and Order of Evaluation
+
+This table shows C operators, their precedence, and associativity.
+
+| Operator                            | Associativity  | Notes |
+|-------------------------------------|----------------|-------|
+| `() [] -> . ++ --`                  | left to right  | [1]   |
+| `! ~ ++ -- + - (type) * & sizeof`   | right to left  | [2]   |
+| `* / %`                             | left to right  |       |
+| `+ -`                               | left to right  |       |
+| `<< >>`                             | left to right  |       |
+| `< <= > >=`                         | left to right  |       |
+| `== !=`                             | left to right  |       |
+| `&`                                 | left to right  |       |
+| `^`                                 | left to right  |       |
+| `\|`                                | left to right  |       |
+| `&&`                                | left to right  |       |
+| `\|\|`                              | left to right  |       |
+| `?:`                                | right to left  |       |
+| `= += -= *= /= %= <<= >>= &= ^= \|=`| right to left  |       |
+| `,`                                 | left to right  |       |
+
+---
+
+### Notes
+1. The `++` and `--` operators at this precedence level are the **postfix** versions.  
+2. The `++` and `--` operators at this precedence level are the **prefix** versions.  
 
 ---
