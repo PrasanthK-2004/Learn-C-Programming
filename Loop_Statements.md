@@ -3,7 +3,7 @@
 This file contains 50 example programs to master `Loop Statements` in c
 
 ---
-[🔽 Go to Bottom](#program50) | [⬅ Back to Table of Contents](README.md)
+[🔽 Go to Bottom](#program-50) | [⬅ Back to Table of Contents](README.md)
 
 ---
 
@@ -1454,6 +1454,6 @@ Product of even digits = 8
 ```
 
 ---
-[🔼 Back to Top](#loop_statements-in-c) | [⬅ Back to Table of Contents](README.md)
+[🔼 Back to Top](#loop-statements-in-c) | [⬅ Back to Table of Contents](README.md)
 
 ---
