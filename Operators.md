@@ -3,7 +3,7 @@
 This file contains 50 example programs in C.
 
 ---
-[🔽 Go to Bottom](#bit-is-not-set) | [⬅ Back to Table of Contents](README.md)
+[🔽 Go to Bottom](#program-50) | [⬅ Back to Table of Contents](README.md)
 
 # C Operator Precedence and Order of Evaluation
 
