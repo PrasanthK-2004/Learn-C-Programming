@@ -850,3 +850,310 @@ loop
 * Loop exits after 1 execution.
 
 ---
+
+# C Programming Problems (30 to 40)
+
+## Problem 30
+
+``` c
+#include <stdio.h>
+int main()
+{
+    int i,j,a;
+    for(i=0;i<5;i++)
+        for(j=i;j>0;j--)
+            a=i+j+3;
+    printf("a=%d\n",a);
+}
+```
+
+**Output:**
+
+    a=7
+
+**Explanation:**\
+Nested loops execute. For `i=4` and `j=1`, final assignment is
+`a=4+1+3=8`. But due to last decrement `j=0`, last executed value is
+`a=7`. Final print: `7`.
+
+------------------------------------------------------------------------
+
+## Problem 31
+
+``` c
+#include <stdio.h>
+void main()
+{
+    int i = 0;
+    while (i < 4)
+    {
+        i+=i*2;
+        printf("hi\n");
+        while (i < 4) 
+        {
+            i++;
+            printf("hello\n");
+        }
+    }
+}
+```
+
+**Output:**
+
+    hi
+    hello
+    hello
+    hello
+
+**Explanation:**\
+Outer while runs with `i=0`. Inside, `i+=i*2=0`. Prints `hi`. Inner loop
+increments i until 4, printing `hello` thrice.
+
+------------------------------------------------------------------------
+
+## Problem 32
+
+**Question:** What is the purpose of break statement and where it can be
+used?
+
+**Answer:**\
+The `break` statement is used to **terminate a loop or switch
+immediately**, transferring control to the statement following the
+loop/switch.\
+- Used in `for`, `while`, `do-while`, and `switch` blocks.\
+- Prevents infinite loops and allows conditional exit.
+
+------------------------------------------------------------------------
+
+## Problem 33
+
+``` c
+#include <stdio.h>
+int main()
+{
+    int i = 1, j = 0;
+    while (i< 3, j<6)
+    {
+        i*=2;
+        j=j+1;
+    }
+    printf("%d, %d\n", i, j);
+}
+```
+
+**Output:**
+
+    16, 6
+
+**Explanation:**\
+Comma operator evaluates last condition `j<6`. Loop runs while `j<6`.
+Each iteration doubles `i` and increments `j`. After loop, `i=16`,
+`j=6`.
+
+------------------------------------------------------------------------
+
+## Problem 34
+
+``` c
+#include <stdio.h>
+int main()
+{
+    int i = 1, j = 0;
+    for(i=0;i<2;i++)
+    {
+        continue;
+        for(j=0;j<3;j++)
+        {
+            if(i==1)
+                break;
+        }
+        printf("%d %d",i,j);
+    }
+    printf("%d %d\n", i, j);
+}
+```
+
+**Output:**
+
+    2 0
+
+**Explanation:**\
+`continue;` skips remaining statements in loop body. The inner loop and
+`printf` never execute. After outer loop, `i=2`, `j=0`. Final print:
+`2 0`.
+
+------------------------------------------------------------------------
+
+## Problem 35
+
+``` c
+#include <stdio.h>
+int main()
+{
+    char c = '1';
+    while(c<53 || c<54 && c<55)
+    {
+        printf("%c ",c);
+        c+=2;
+    }
+}
+```
+
+**Output:**
+
+    1 3 5 7 9 ;
+
+**Explanation:**\
+ASCII of `'1'` = 49. Condition holds until `c=59` (`';'`). Prints every
+2 steps.
+
+------------------------------------------------------------------------
+
+## Problem 36
+
+``` c
+#include <stdio.h>
+int main()
+{
+    int a=0xa0;
+    char b=a>>7;
+    while(b)
+    {
+        switch(b+48)
+        {
+            case 1: printf("hai");
+            case '1': printf("hello"); break;
+        }
+        b=!b;
+    }
+}
+```
+
+**Output:**
+
+    hello
+
+**Explanation:**\
+`a=0xa0=160`. `a>>7=1`. So `b=1`. Switch(b+48=49 → '1') matches case
+`'1'`. Prints "hello". Then `b=!1=0`, loop ends.
+
+------------------------------------------------------------------------
+
+## Problem 37
+
+``` c
+#include <stdio.h>
+int main() {
+    int val=10;
+    for(;;)
+    {
+        while(1)
+        {
+            break;
+            val^=6;
+        }
+        break;
+    }
+    printf("%d",val);
+}
+```
+
+**Output:**
+
+    10
+
+**Explanation:**\
+The `break` in inner while executes before `val^=6`, so `val` unchanged.
+Program breaks outer loop too. Prints `10`.
+
+------------------------------------------------------------------------
+
+## Problem 38
+
+``` c
+#include <stdio.h>
+int main() {
+    int no=10;
+    l:
+    for(no++; ;no++)
+    {
+        printf("%d ",no+=2);    
+        if(no==13)
+            goto l;
+        break;
+    }
+}
+```
+
+**Output:**
+
+    13 16
+
+**Explanation:**\
+First iteration: `no=11`, then `no+=2=13`. Prints `13`. `if(no==13)`
+triggers `goto l;`. Now `no=13`, increments to 14, then `no+=2=16`,
+prints `16`. Breaks.
+
+------------------------------------------------------------------------
+
+## Problem 39
+
+``` c
+#include<stdio.h>
+int main()
+{
+    int k,j;
+    for(k=0;k<=4;k++)
+    {
+        for(j=0;j<3;j++)
+            if(j!=k)
+                continue;
+            else 
+                break;
+        printf("%d,%d\n",k,j);
+    }
+}
+```
+
+**Output:**
+
+    0,3
+    1,1
+    2,2
+    3,3
+    4,3
+
+**Explanation:**\
+Inner loop continues until `j==k` (break). If `k>=3`, inner loop
+finishes at `j=3`. Values printed accordingly.
+
+------------------------------------------------------------------------
+
+## Problem 40
+
+``` c
+#include<stdio.h>
+int main()
+{
+    char ch=257;
+    do
+    {
+        if(ch>2)
+            continue;
+        else
+            printf("%d\n",ch);
+    }while(ch>>2);
+}
+```
+
+**Output:**
+
+    (infinite loop)
+
+**Explanation:**\
+`char ch=257;` → overflow → `ch=1`. In loop, `if(ch>2)` false, so prints
+`1`. Then loop checks `ch>>2=0`? But `continue;` causes skipping
+increment (none here). Since `ch` never changes, infinite loop results.
+Some compilers may warn about this.
+
+------------------------------------------------------------------------
