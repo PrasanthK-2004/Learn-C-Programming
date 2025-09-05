@@ -833,6 +833,12 @@ int main()
 4 6
 ```
 
+**Explanation:**
+
+5 & 6 → 0101 & 0110 → 0100 → 4
+
+4 | 6 → 0100 | 0110 → 0110 → 6
+
 ---
 
 ## Program 36
@@ -852,6 +858,12 @@ int main()
 ```
 5 9 2 8 25
 ```
+
+**Explanation:**
+
+a++=4 (then a=5), ++b=9, c--=3 (then c=2), --d=8
+
+z = 4 + 9*3 - 8 = 23
 
 ---
 
@@ -898,6 +910,12 @@ int main()
 1
 ```
 
+**Explanation:**
+
+x-- ? → true (x=1)
+
+y==0 && x<5 → 1 && 0<5 → 1
+
 ---
 
 ## Program 39
@@ -918,6 +936,10 @@ int main()
 8
 ```
 
+**Explanation:**
+
+n + 12.0 → double → sizeof(double) = 8
+
 ---
 
 ## Program 40
@@ -934,7 +956,19 @@ int main()
 }
 ```
 
-**Output:** Undefined behavior due to uninitialized `c`.
+**Output:**
+
+```
+0 1 3
+```
+
+**Explanation:**
+
+c = c==c → 1, !(c) → 0 → a=0
+
+c += (a+b--) → 1 + (0+2) = 3
+
+b-- → b=1
 
 ---
 
@@ -955,6 +989,12 @@ int main()
 ```
 26 17
 ```
+
+**Explanation:**
+
+012 octal = 10, 0x12 hex = 18 → 10|18=26
+
+021 & 021 → 17 & 17 = 17
 
 ---
 
@@ -977,6 +1017,10 @@ int main()
 0
 ```
 
+**Explanation:**
+
+y promoted to unsigned → large value → x<y → 0
+
 ---
 
 ## Program 43
@@ -998,6 +1042,12 @@ int main() {
 4000
 ```
 
+**Explanation:**
+
+'a' as int → 4 bytes → 1<<31=0x80000000
+
+a >>= 15 → 0x10000
+
 ---
 
 ## Program 45
@@ -1012,6 +1062,16 @@ int main() {
         printf("Bit is not set");
 }
 ```
+
+**Output:**
+
+```
+Bit is set
+```
+
+**Explanation:**
+
+5=0101 → 2nd bit (count from 0) is 1
 
 ---
 
@@ -1034,6 +1094,10 @@ int main()
 -5 6
 ```
 
+**Explanation:**
+
+XOR-based swapping trick
+
 ---
 
 ## Program 47
@@ -1052,6 +1116,10 @@ int main()
 ```
 5
 ```
+
+**Explanation:**
+
+Comma operator → evaluates left to right, last value a=4
 
 ---
 
@@ -1073,6 +1141,10 @@ int main()
 ```
 20
 ```
+
+**Explanation:**
+
+a/b = 10/20=0 → false → select c=30
 
 ---
 
@@ -1106,6 +1178,14 @@ int main() {
 40000000
 2000
 ```
+
+**Explanation:**
+
+0x2 << 31 = 0x40000000
+
+Shift right 15 → 0x2000
+
+---
 
 [🔼 Back to Top](#c-operators) | [⬅ Back to Table of Contents](README.md)
 
