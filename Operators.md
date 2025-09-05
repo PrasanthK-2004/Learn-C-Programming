@@ -449,17 +449,7 @@ int main()
 -15
 ```
 
-**Explanation:**  
-p=5, q=-6. z=5/6 + (-6*5)/2 = 0 + -15 = -15 (check exact math).
-
----
-# C Programming: Code, Output, and Explanation
-
-This file contains multiple C programs with their outputs and explanations. It can be used as a reference or uploaded directly to GitHub.
-
----
-
-## 19. Unary Operators Example
+## Program 19
 
 ```c
 #include <stdio.h>
@@ -482,7 +472,7 @@ int main()
 
 ---
 
-## 20. Sequence of Assignments and Comparisons
+## Program 20
 
 ```c
 #include <stdio.h>
@@ -507,7 +497,7 @@ int main()
 
 ---
 
-## 21. `sizeof` Operator
+## Program 21
 
 ```c
 #include <stdio.h>
@@ -534,7 +524,7 @@ int main()
 
 ---
 
-## 22. Bitwise NOT and Shift
+## Program 22
 
 ```c
 #include<stdio.h>
@@ -559,7 +549,7 @@ ffffff8a
 
 ---
 
-## 23. Compound Assignment
+## Program 23
 
 ```c
 #include<stdio.h>
@@ -583,7 +573,7 @@ int main()
 
 ---
 
-## 24. Relational Operator
+## Program 24
 
 ```c
 #include<stdio.h>
@@ -607,7 +597,7 @@ int main()
 
 ---
 
-## 25. Bitwise Operators
+## Program 25
 
 ```c
 #include<stdio.h>
@@ -632,13 +622,13 @@ int main()
 
 ---
 
-## 26. Toggle Bit Operator
+## Program 26
 
 **Answer:** `^` (XOR) toggles a particular bit in a number.
 
 ---
 
-## 27. Float Arithmetic
+## Program 27
 
 ```c
 #include<stdio.h>
@@ -664,7 +654,7 @@ int main()
 
 ---
 
-## 28. Shift with Undefined Variable
+## Program 28
 
 ```c
 #include<stdio.h>
@@ -681,7 +671,7 @@ int main()
 
 ---
 
-## 29. Logical Assignment Operators
+## Program 29
 
 ```c
 #include<stdio.h>
@@ -707,7 +697,7 @@ int main()
 
 ---
 
-## 30. Hex and Octal Negative Numbers
+## Program 30
 
 ```c
 #include<stdio.h>
@@ -731,7 +721,7 @@ fffffc01
 
 ---
 
-## 31. Shift and Logical Operators
+## Program 31
 
 ```c
 #include<stdio.h>
@@ -755,7 +745,7 @@ int main()
 
 ---
 
-## 32. Invalid Increment
+## Program 32
 
 ```c
 #include <stdio.h>
@@ -771,7 +761,7 @@ int main()
 
 ---
 
-## 33. Complex Bitwise
+## Program 33
 
 ```c
 #include <stdio.h>
@@ -797,7 +787,7 @@ int main()
 
 ---
 
-## 34. Compound Arithmetic
+## Program 34
 
 ```c
 #include <stdio.h>
@@ -824,7 +814,7 @@ x=192 ,y=48
 
 ---
 
-## 35. Bitwise AND/OR
+## Program 35
 
 ```c
 #include<stdio.h>
@@ -845,7 +835,7 @@ int main()
 
 ---
 
-## 36. Mixed Arithmetic
+## Program 36
 
 ```c
 #include<stdio.h>
@@ -865,7 +855,7 @@ int main()
 
 ---
 
-## 37. Float Comparison
+## Program 37
 
 ```c
 #include<stdio.h>
@@ -890,7 +880,7 @@ int main()
 
 ---
 
-## 38. Ternary Operator
+## Program 38
 
 ```c
 #include<stdio.h>
@@ -910,7 +900,7 @@ int main()
 
 ---
 
-## 39. `sizeof` with Float
+## Program 39
 
 ```c
 #include<stdio.h>
@@ -930,7 +920,7 @@ int main()
 
 ---
 
-## 40. Logical and Increment Operators
+## Program 40
 
 ```c
 #include<stdio.h>
@@ -948,7 +938,7 @@ int main()
 
 ---
 
-## 41. Octal and Hex Bitwise
+## Program 41
 
 ```c
 #include<stdio.h>
@@ -968,7 +958,7 @@ int main()
 
 ---
 
-## 42. Unsigned vs Signed Comparison
+## Program 42
 
 ```c
 #include<stdio.h>
@@ -989,7 +979,7 @@ int main()
 
 ---
 
-## 43. Bit Shift Edge Case
+## Program 43
 
 ```c
 #include <stdio.h>
@@ -1010,7 +1000,7 @@ int main() {
 
 ---
 
-## 45. Check if Bit is Set
+## Program 45
 
 ```c
 #include<stdio.h>
@@ -1025,7 +1015,7 @@ int main() {
 
 ---
 
-## 46. XOR Swap Trick
+## Program 46
 
 ```c
 #include <stdio.h>
@@ -1046,7 +1036,7 @@ int main()
 
 ---
 
-## 47. Comma Operator
+## Program 47
 
 ```c
 #include<stdio.h>
@@ -1065,7 +1055,7 @@ int main()
 
 ---
 
-## 48. Ternary Operator
+## Program 48
 
 ```c
 #include<stdio.h>
@@ -1086,7 +1076,7 @@ int main()
 
 ---
 
-## 49. Invalid Modulus
+## Program 49
 
 ```c
 x %= 7.0 % 2
@@ -1098,7 +1088,7 @@ x %= 7.0 % 2
 
 ---
 
-## 50. Bit Shift Example
+## Program 50
 
 ```c
 #include <stdio.h>
