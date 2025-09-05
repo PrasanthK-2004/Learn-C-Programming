@@ -1156,4 +1156,301 @@ int main()
 increment (none here). Since `ch` never changes, infinite loop results.
 Some compilers may warn about this.
 
-------------------------------------------------------------------------
+---
+
+# C Programming Practice – Problems 41 to 50
+
+---
+
+## Problem 41
+```c
+#include<stdio.h>
+int main()
+{
+    int a=10;
+label:
+    while(1)
+    {
+        printf("hello\n");
+        if(a++<15)
+            goto label;
+        else
+            break;
+        printf("%d\n",a);
+    }
+}
+```
+### Explanation  
+- Infinite recursion-like behavior because of `goto label;` inside `while(1)`.  
+- Prints `"hello"` repeatedly until `a` reaches 16, then exits loop.  
+- `printf("%d\n",a);` after `break;` is unreachable.  
+
+### Output  
+```
+hello
+hello
+hello
+hello
+hello
+hello
+```
+
+---
+
+## Problem 42
+```c
+#include<stdio.h>
+int main()
+{
+    int s=4>>3;   // s = 0
+    while(!s)     // !0 = 1 → loop executes infinitely
+    {
+        switch(~s)   // ~0 = -1
+        {
+            default: printf("default\n"); break;
+            case 0:  printf("hai\n"); break;
+            case 1:  printf("hello\n"); break;
+            case -1: printf("bye\n");
+            default: printf("welcome\n"); break;
+        }
+    }
+}
+```
+### Explanation  
+- `s = 0`.  
+- Condition `while(!s)` → true, infinite loop.  
+- `~0 = -1`.  
+- `case -1` executes → prints `"bye"` and falls into `default` → prints `"welcome"`.  
+
+### Output (infinite loop)  
+```
+bye
+welcome
+bye
+welcome
+...
+```
+
+---
+
+## Problem 43
+```c
+#include<stdio.h>
+int main()
+{
+    int a=20;
+    float m=2,m2=4;
+    for(;a>5;a++)
+    {
+        a=a^m;        // float converted to int (2)
+        printf("%d",a);
+        a=a^m2;       // XOR with 4
+        printf("%d",a);
+    }
+}
+```
+### Explanation  
+- XOR operations with float → implicitly converted to int.  
+- `a` keeps increasing because of loop.  
+- Prints XOR results for each iteration until overflow. (Practically infinite).  
+
+---
+
+## Problem 44
+```c
+#include<stdio.h>
+int main()
+{
+    int k,a=2;
+    while(k=sizeof('A'),a--)
+    {
+        printf("%d\n",k);
+    }
+}
+```
+### Explanation  
+- `sizeof('A')` in C is `int` (usually 4).  
+- `while(k=4, a--)` → comma operator, assigns 4 to `k`, then checks `a--`.  
+- Runs 2 times (`a=2,1`).  
+
+### Output  
+```
+4
+4
+```
+
+---
+
+## Problem 45
+```c
+#include<stdio.h>
+int main()
+{
+    int n=5;
+    do
+    {
+        switch(n>>1)  // 5>>1 = 2
+        {
+            case 1: printf("case1\n"); break;
+            case 3: printf("case2\n"); break;
+            case 2: goto label;
+        }
+    }while(1);
+label:
+    printf("welcome\n");
+}
+```
+### Explanation  
+- `n=5`, `n>>1 = 2`.  
+- Jumps to `label`.  
+- Prints `"welcome"`.  
+
+### Output  
+```
+welcome
+```
+
+---
+
+## Problem 46
+```c
+#include<stdio.h>
+int main()
+{
+    char ch= 'b' , ch1 = ch ;
+    for(;;)
+    {
+        ch = ch + '1';       // 'b'(98) + '1'(49) = 147
+        ch1= ch1 - 32;       // 'b'(98) - 32 = 66
+        printf("ch= %d , ch1= %d \n", ch , ~ch1 );
+        break;
+    }
+}
+```
+### Explanation  
+- `ch = 147`.  
+- `ch1 = 66`.  
+- `~ch1 = ~66 = -67`.  
+
+### Output  
+```
+ch= 147 , ch1= -67
+```
+
+---
+
+## Problem 47
+```c
+#include<stdio.h>
+int main()
+{
+    int coding='2'+ 05;  // '2' = 50, 50+5=55
+    while(coding)
+    {
+        printf("%x \n",coding);
+        coding=!coding;   // becomes 0
+    }
+}
+```
+### Explanation  
+- First iteration: `coding=55`.  
+- Prints in hex: `37`.  
+- Then `coding=!55 = 0`. Loop exits.  
+
+### Output  
+```
+37
+```
+
+---
+
+## Problem 48
+```c
+#include<stdio.h>
+int main()
+{
+    int x = 5, counter = 1 ;
+    while ( (x -1 ) )
+    {
+        ++counter ;
+        x -- ;
+    }
+    printf("%d ",counter);
+}
+```
+### Explanation  
+- Loop runs while `x-1 != 0`.  
+- Iterations: x=5→4→3→2. Stops when x=1.  
+- Counter increments each time. Final counter=5.  
+
+### Output  
+```
+5
+```
+
+---
+
+## Problem 49
+```c
+#include <stdio.h>
+int main()
+{
+    int i = 3;
+    while (i--)
+    {
+        int i = 100;  // inner scope variable
+        i--;
+        printf("%d ", i);
+    }
+    return 0;
+}
+```
+### Explanation  
+- Outer `i` controls loop: 3 iterations.  
+- Inner `i=100`, decremented → 99 each time.  
+- Prints `99 99 99`.  
+
+### Output  
+```
+99 99 99
+```
+
+---
+
+## Problem 50
+**Program to find sum of odd digits and product of even digits in a number**
+
+```c
+#include<stdio.h>
+int main()
+{
+    int num=12345;
+    int sumOdd=0, prodEven=1, digit;
+    int temp=num;
+
+    while(temp>0)
+    {
+        digit=temp%10;
+        if(digit%2==0)
+            prodEven*=digit;
+        else
+            sumOdd+=digit;
+        temp/=10;
+    }
+
+    printf("Number = %d\n",num);
+    printf("Sum of odd digits = %d\n",sumOdd);
+    printf("Product of even digits = %d\n",prodEven);
+
+    return 0;
+}
+```
+
+### Output  
+```
+Number = 12345
+Sum of odd digits = 9
+Product of even digits = 8
+```
+
+---
