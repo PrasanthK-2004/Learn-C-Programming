@@ -1,7 +1,7 @@
 # Data Types
 ---
 
-[🔽 Go to Bottom](L50) | [⬅ Back to Table of Contents](README.md)
+[🔽 Go to Bottom](#c-operator) | [⬅ Back to Table of Contents](README.md)
 
 | Datatype        | Size (bytes) | Range (Typical)                                                                                                      | Format Specifier                       | Description                      |
 | --------------- | ------------ | -------------------------------------------------------------------------------------------------------------------- | -------------------------------------- | -------------------------------- |
@@ -49,6 +49,6 @@ This table shows C operators, their precedence, and associativity.
 
 ---
 
-[🔽 Back to Top](#data-types) | [⬅ Back to Table of Contents](README.md)
+[🔼 Back to Top](#data-types) | [⬅ Back to Table of Contents](README.md)
 
 ---
