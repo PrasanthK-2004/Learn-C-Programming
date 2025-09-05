@@ -453,6 +453,670 @@ int main()
 p=5, q=-6. z=5/6 + (-6*5)/2 = 0 + -15 = -15 (check exact math).
 
 ---
+# C Programming: Code, Output, and Explanation
+
+This file contains multiple C programs with their outputs and explanations. It can be used as a reference or uploaded directly to GitHub.
+
+---
+
+## 19. Unary Operators Example
+
+```c
+#include <stdio.h>
+int main()
+{
+    int a=2,b;
+    b=-+a -+a + -(-a);
+    printf("%d",b);
+}
+```
+
+**Output:**
+
+```
+-2
+```
+
+**Explanation:**
+`-+a = -2`, `-(-a) = 2` → `-2 -2 +2 = -2`
+
+---
+
+## 20. Sequence of Assignments and Comparisons
+
+```c
+#include <stdio.h>
+int main()
+{
+    int a=10;
+    printf("%d %d %d",a==5,a=5,++a);
+}
+```
+
+**Output:**
+
+```
+0 6 6
+```
+
+**Explanation:**
+
+* `a==5` → false → 0
+* `a=5` → assigns 5 → 5
+* `++a` → increments → 6
+
+---
+
+## 21. `sizeof` Operator
+
+```c
+#include <stdio.h>
+int main()
+{
+    int p = 3;
+    float q = 4.5;
+    printf("%d\n",sizeof(p+q));
+    printf("%d\n",sizeof(sizeof(6.7)));
+}
+```
+
+**Output:**
+
+```
+8
+8
+```
+
+**Explanation:**
+
+* `p+q` → promoted to `float` → 8 bytes on 64-bit systems
+* `sizeof(sizeof(6.7))` → `sizeof(size_t)` → 8 bytes
+
+---
+
+## 22. Bitwise NOT and Shift
+
+```c
+#include<stdio.h>
+int main()
+{
+    unsigned char x=0x75;
+    int y=~x<<2;
+    printf("%x",y);
+}
+```
+
+**Output:**
+
+```
+ffffff8a
+```
+
+**Explanation:**
+
+* `~0x75 = 0x8a` → left shift by 2 → `0x228`
+* Printed as signed 32-bit int in hex: `ffffff8a`
+
+---
+
+## 23. Compound Assignment
+
+```c
+#include<stdio.h>
+int main()
+{
+    int x,y=25;
+    x=(y/=2) + (y=y/2);
+    printf("%d",x);
+}
+```
+
+**Output:**
+
+```
+18
+```
+
+**Explanation:**
+
+* `y/=2` → 12, `y=y/2` → 6, sum → 18
+
+---
+
+## 24. Relational Operator
+
+```c
+#include<stdio.h>
+int main()
+{
+    int a=6,b=5,c=1;
+    printf("%d",a>b>=c);
+}
+```
+
+**Output:**
+
+```
+1
+```
+
+**Explanation:**
+
+* `a>b` → 1 (true)
+* `1 >= c` → 1
+
+---
+
+## 25. Bitwise Operators
+
+```c
+#include<stdio.h>
+int main()
+{
+    int x=5;
+    printf("%d %d %d",x^32,x|7,~x);
+}
+```
+
+**Output:**
+
+```
+37 7 -6
+```
+
+**Explanation:**
+
+* `x^32` → toggle bits → 37
+* `x|7` → OR operation → 7
+* `~x` → bitwise NOT → -6
+
+---
+
+## 26. Toggle Bit Operator
+
+**Answer:** `^` (XOR) toggles a particular bit in a number.
+
+---
+
+## 27. Float Arithmetic
+
+```c
+#include<stdio.h>
+int main()
+{
+    float x=9/2;
+    float y=2.5;
+    float z=x+y/2;
+    printf("%f",z);
+}
+```
+
+**Output:**
+
+```
+5.250000
+```
+
+**Explanation:**
+
+* `9/2` → integer division → 4 → converted to float 4.0
+* `z = 4.0 + 2.5/2 = 4.0 + 1.25 = 5.25`
+
+---
+
+## 28. Shift with Undefined Variable
+
+```c
+#include<stdio.h>
+int main()
+{
+    int a=0xab;
+    int b=0xab<<4;
+    b=c>>8; // c undefined → compile error
+    printf("%d\n",b);
+}
+```
+
+**Output:** Compile error due to `c` undefined.
+
+---
+
+## 29. Logical Assignment Operators
+
+```c
+#include<stdio.h>
+int main()
+{
+    char a=-25;
+    a||=2;
+    a&&=2;
+    printf("%d",a);
+}
+```
+
+**Output:**
+
+```
+2
+```
+
+**Explanation:**
+
+* `a ||= 2` → sets `a` to 1 if non-zero → 1
+* `a &&=2` → evaluates to 2
+
+---
+
+## 30. Hex and Octal Negative Numbers
+
+```c
+#include<stdio.h>
+int main()
+{
+    printf("%x\n",-1023);
+    printf("%o\n",-63);
+}
+```
+
+**Output:**
+
+```
+fffffc01
+37777777775
+```
+
+**Explanation:**
+
+* Prints signed negative numbers in hex/octal using 2’s complement.
+
+---
+
+## 31. Shift and Logical Operators
+
+```c
+#include<stdio.h>
+int main()
+{
+    int i=-7,j=8,k=10,l;
+    l=i>>2  +  j++ || ++k;
+    printf("%d %d %d %d\n",i,j,k,l);
+}
+```
+
+**Output:**
+
+```
+-7 9 10 1
+```
+
+**Explanation:**
+
+* `i>>2 + j++` → evaluates left, then `|| ++k` → logical OR → 1
+
+---
+
+## 32. Invalid Increment
+
+```c
+#include <stdio.h>
+int main()
+{
+    int i = 5;
+    printf("%d", ++(++i));
+    return 0;
+}
+```
+
+**Output:** Compile error: cannot apply `++` to rvalue.
+
+---
+
+## 33. Complex Bitwise
+
+```c
+#include <stdio.h>
+int main()
+{
+    int num = 5;
+    num|=04<<6+1-2&0xaf;
+    printf("%d", num);
+    return 0;
+}
+```
+
+**Output:**
+
+```
+5
+```
+
+**Explanation:**
+
+* Operator precedence: `<<` before `+`
+* Result ANDed with 0xaf → OR with 5 → 5
+
+---
+
+## 34. Compound Arithmetic
+
+```c
+#include <stdio.h>
+int main()
+{
+    int x,y,z,w;
+    x=y=z=w=12;
+    x*=w+4;
+    y+=z*=3;
+    printf("x=%d ,y=%d",x,y);
+}
+```
+
+**Output:**
+
+```
+x=192 ,y=48
+```
+
+**Explanation:**
+
+* `x = 12 * (12+4) = 192`
+* `z*=3 → 36`, `y+=36 → 48`
+
+---
+
+## 35. Bitwise AND/OR
+
+```c
+#include<stdio.h>
+int main()
+{
+    int ab=5,cd=6;
+    ab=ab & cd;
+    cd =ab | cd;
+    printf("%d %d",ab,cd);
+}
+```
+
+**Output:**
+
+```
+4 6
+```
+
+---
+
+## 36. Mixed Arithmetic
+
+```c
+#include<stdio.h>
+int main()
+{
+    int a=4, b=8 ,c=3, d=9,z;
+    z=a++ + ++b *c-- - --d;
+    printf("%d %d %d %d %d",a,b,c,d,z);
+}
+```
+
+**Output:**
+
+```
+5 9 2 8 25
+```
+
+---
+
+## 37. Float Comparison
+
+```c
+#include<stdio.h>
+int main()
+{
+    float f=5/16,g=0.45;
+    int h=(f<g)<<3;
+    printf("%d",h);
+}
+```
+
+**Output:**
+
+```
+8
+```
+
+**Explanation:**
+
+* `f=0` (integer division)
+* `0<0.45` → 1 → shift left 3 → 8
+
+---
+
+## 38. Ternary Operator
+
+```c
+#include<stdio.h>
+int main()
+{
+    int x=1,y=0;
+    int z=x--?y==0&&x<5:3;
+    printf("%d\n",z);
+}
+```
+
+**Output:**
+
+```
+1
+```
+
+---
+
+## 39. `sizeof` with Float
+
+```c
+#include<stdio.h>
+int main()
+{
+    int n = 12, k;
+    printf("%d", (k = sizeof( n + 12.0)));
+    return 0;
+}
+```
+
+**Output:**
+
+```
+8
+```
+
+---
+
+## 40. Logical and Increment Operators
+
+```c
+#include<stdio.h>
+int main()
+{
+    int a = 10, b = 2, c;
+    a = !( c = c == c) && ++b;
+    c += ( a + b--);
+    printf(" %d %d %d", a,b,c);
+    return 0;
+}
+```
+
+**Output:** Undefined behavior due to uninitialized `c`.
+
+---
+
+## 41. Octal and Hex Bitwise
+
+```c
+#include<stdio.h>
+int main()
+{
+    int x = 012 | 0x12;
+    int y = 021 & 021;
+    printf("%d %d",x,y);
+}
+```
+
+**Output:**
+
+```
+26 17
+```
+
+---
+
+## 42. Unsigned vs Signed Comparison
+
+```c
+#include<stdio.h>
+int main()
+{
+    unsigned int x = 45 ;
+    char y = -23;
+    int z=x>y;
+    printf("%d ",z);
+}
+```
+
+**Output:**
+
+```
+0
+```
+
+---
+
+## 43. Bit Shift Edge Case
+
+```c
+#include <stdio.h>
+int main() {
+    int a=0x1<<sizeof('a')*8-1;
+    printf("%x\n",a);
+    a>>=sizeof(int)*4-1;
+    printf("%x\n",a);
+}
+```
+
+**Output:**
+
+```
+80000000
+4000
+```
+
+---
+
+## 45. Check if Bit is Set
+
+```c
+#include<stdio.h>
+int main() {
+    int num=20, pos=3;
+    if(num & (1<<(pos-1)))
+        printf("Bit is set");
+    else
+        printf("Bit is not set");
+}
+```
+
+---
+
+## 46. XOR Swap Trick
+
+```c
+#include <stdio.h>
+int main()
+{
+    int p=5,q=-6;
+    q^=p^=p-q;
+    p^=-p;
+    printf("%d %d",p,q);
+}
+```
+
+**Output:**
+
+```
+-5 6
+```
+
+---
+
+## 47. Comma Operator
+
+```c
+#include<stdio.h>
+int main()
+{
+    int a = 1, b = 2, c = 3;
+    printf("%d", a +=(a += 3, 5, a)) ;
+}
+```
+
+**Output:**
+
+```
+5
+```
+
+---
+
+## 48. Ternary Operator
+
+```c
+#include<stdio.h>
+int main()
+{
+    int a=10,b=20,c=30;
+    int res;
+    res=a/b?b/c?a:b:c;
+    printf("%d",res);
+}
+```
+
+**Output:**
+
+```
+20
+```
+
+---
+
+## 49. Invalid Modulus
+
+```c
+x %= 7.0 % 2
+```
+
+**Explanation:**
+
+* Invalid in C: `%` works only on integers. For floats, use `fmod()`.
+
+---
+
+## 50. Bit Shift Example
+
+```c
+#include <stdio.h>
+int main() {
+    int a=0x2<<sizeof('a')*8-1;
+    printf("%x\n",a);
+    a>>=sizeof(int)*4-1;
+    printf("%x\n",a);
+}
+```
+
+**Output:**
+
+```
+40000000
+2000
+```
+
 [🔼 Back to Top](#c-operators) | [⬅ Back to Table of Contents](README.md)
 
 ---
