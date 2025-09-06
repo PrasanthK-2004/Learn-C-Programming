@@ -437,10 +437,6 @@ int main(){
 
 ---
 
-# C Loop and Control Flow Programs (16–29)
-
----
-
 ## Problem 16
 
 ```c
@@ -609,7 +605,9 @@ int main()
 
 ## Problem 21
 
-**Q:** The minimum number of executions for a `do while` loop is \_\_\_\_\_.
+**Question:** 
+The minimum number of executions for a `do while` loop is \_\_\_\_\_.
+
 **Answer:** 1 (since `do while` executes once before checking condition).
 
 ---
@@ -851,8 +849,6 @@ loop
 
 ---
 
-# C Programming Problems (30 to 40)
-
 ## Problem 30
 
 ``` c
@@ -869,14 +865,16 @@ int main()
 
 **Output:**
 
-    a=7
+```
+a=7
+```
 
-**Explanation:**\
+**Explanation:**
 Nested loops execute. For `i=4` and `j=1`, final assignment is
 `a=4+1+3=8`. But due to last decrement `j=0`, last executed value is
 `a=7`. Final print: `7`.
 
-------------------------------------------------------------------------
+---
 
 ## Problem 31
 
@@ -900,30 +898,32 @@ void main()
 
 **Output:**
 
-    hi
-    hello
-    hello
-    hello
+```
+hi
+hello
+hello
+hello
+```
 
-**Explanation:**\
+**Explanation:**
 Outer while runs with `i=0`. Inside, `i+=i*2=0`. Prints `hi`. Inner loop
 increments i until 4, printing `hello` thrice.
 
-------------------------------------------------------------------------
+---
 
 ## Problem 32
 
 **Question:** What is the purpose of break statement and where it can be
 used?
 
-**Answer:**\
+**Answer:**
 The `break` statement is used to **terminate a loop or switch
 immediately**, transferring control to the statement following the
 loop/switch.\
 - Used in `for`, `while`, `do-while`, and `switch` blocks.\
 - Prevents infinite loops and allows conditional exit.
 
-------------------------------------------------------------------------
+---
 
 ## Problem 33
 
@@ -943,14 +943,16 @@ int main()
 
 **Output:**
 
-    16, 6
+```
+16, 6
+```
 
 **Explanation:**\
 Comma operator evaluates last condition `j<6`. Loop runs while `j<6`.
 Each iteration doubles `i` and increments `j`. After loop, `i=16`,
 `j=6`.
 
-------------------------------------------------------------------------
+---
 
 ## Problem 34
 
@@ -975,14 +977,16 @@ int main()
 
 **Output:**
 
-    2 0
+```
+2 0
+```
 
-**Explanation:**\
+**Explanation:**
 `continue;` skips remaining statements in loop body. The inner loop and
 `printf` never execute. After outer loop, `i=2`, `j=0`. Final print:
 `2 0`.
 
-------------------------------------------------------------------------
+---
 
 ## Problem 35
 
@@ -1001,13 +1005,15 @@ int main()
 
 **Output:**
 
-    1 3 5 7 9 ;
+```
+1 3 5 7 9 ;
+```
 
-**Explanation:**\
+**Explanation:**
 ASCII of `'1'` = 49. Condition holds until `c=59` (`';'`). Prints every
 2 steps.
 
-------------------------------------------------------------------------
+---
 
 ## Problem 36
 
@@ -1031,13 +1037,15 @@ int main()
 
 **Output:**
 
-    hello
+```
+hello
+```
 
-**Explanation:**\
+**Explanation:**
 `a=0xa0=160`. `a>>7=1`. So `b=1`. Switch(b+48=49 → '1') matches case
 `'1'`. Prints "hello". Then `b=!1=0`, loop ends.
 
-------------------------------------------------------------------------
+---
 
 ## Problem 37
 
@@ -1060,13 +1068,15 @@ int main() {
 
 **Output:**
 
-    10
+```
+10
+```
 
-**Explanation:**\
+**Explanation:**
 The `break` in inner while executes before `val^=6`, so `val` unchanged.
 Program breaks outer loop too. Prints `10`.
 
-------------------------------------------------------------------------
+---
 
 ## Problem 38
 
@@ -1087,14 +1097,16 @@ int main() {
 
 **Output:**
 
-    13 16
+```
+13 16
+```
 
-**Explanation:**\
+**Explanation:**
 First iteration: `no=11`, then `no+=2=13`. Prints `13`. `if(no==13)`
 triggers `goto l;`. Now `no=13`, increments to 14, then `no+=2=16`,
 prints `16`. Breaks.
 
-------------------------------------------------------------------------
+---
 
 ## Problem 39
 
@@ -1117,17 +1129,19 @@ int main()
 
 **Output:**
 
+```
     0,3
     1,1
     2,2
     3,3
     4,3
+```
 
-**Explanation:**\
+**Explanation:**
 Inner loop continues until `j==k` (break). If `k>=3`, inner loop
 finishes at `j=3`. Values printed accordingly.
 
-------------------------------------------------------------------------
+---
 
 ## Problem 40
 
@@ -1148,17 +1162,15 @@ int main()
 
 **Output:**
 
+```
     (infinite loop)
+```
 
-**Explanation:**\
+**Explanation:**
 `char ch=257;` → overflow → `ch=1`. In loop, `if(ch>2)` false, so prints
 `1`. Then loop checks `ch>>2=0`? But `continue;` causes skipping
 increment (none here). Since `ch` never changes, infinite loop results.
 Some compilers may warn about this.
-
----
-
-# C Programming Practice – Problems 41 to 50
 
 ---
 
@@ -1179,21 +1191,23 @@ label:
         printf("%d\n",a);
     }
 }
+``` 
+
+**Output:**
+
 ```
-### Explanation  
+hello
+hello
+hello
+hello
+hello
+hello
+```
+
+**Explanation:**
 - Infinite recursion-like behavior because of `goto label;` inside `while(1)`.  
 - Prints `"hello"` repeatedly until `a` reaches 16, then exits loop.  
-- `printf("%d\n",a);` after `break;` is unreachable.  
-
-### Output  
-```
-hello
-hello
-hello
-hello
-hello
-hello
-```
+- `printf("%d\n",a);` after `break;` is unreachable. 
 
 ---
 
@@ -1215,14 +1229,9 @@ int main()
         }
     }
 }
-```
-### Explanation  
-- `s = 0`.  
-- Condition `while(!s)` → true, infinite loop.  
-- `~0 = -1`.  
-- `case -1` executes → prints `"bye"` and falls into `default` → prints `"welcome"`.  
+``` 
 
-### Output (infinite loop)  
+**Output: (infinite loop)**
 ```
 bye
 welcome
@@ -1231,6 +1240,11 @@ welcome
 ...
 ```
 
+**Explanation:**  
+- `s = 0`.  
+- Condition `while(!s)` → true, infinite loop.  
+- `~0 = -1`.  
+- `case -1` executes → prints `"bye"` and falls into `default` → prints `"welcome"`. 
 ---
 
 ## Problem 43
@@ -1249,7 +1263,14 @@ int main()
     }
 }
 ```
-### Explanation  
+
+**Output:**
+
+```
+22 18 17 21 20 16 19 23 26 30 29 25 ...
+```
+
+**Explanation:**  
 - XOR operations with float → implicitly converted to int.  
 - `a` keeps increasing because of loop.  
 - Prints XOR results for each iteration until overflow. (Practically infinite).  
@@ -1267,17 +1288,18 @@ int main()
         printf("%d\n",k);
     }
 }
+``` 
+
+**Output:**  
 ```
-### Explanation  
+4
+4
+```
+
+**Explanation:**  
 - `sizeof('A')` in C is `int` (usually 4).  
 - `while(k=4, a--)` → comma operator, assigns 4 to `k`, then checks `a--`.  
-- Runs 2 times (`a=2,1`).  
-
-### Output  
-```
-4
-4
-```
+- Runs 2 times (`a=2,1`).
 
 ---
 
@@ -1299,17 +1321,17 @@ int main()
 label:
     printf("welcome\n");
 }
-```
-### Explanation  
-- `n=5`, `n>>1 = 2`.  
-- Jumps to `label`.  
-- Prints `"welcome"`.  
+```  
 
-### Output  
+**Output:**  
 ```
 welcome
 ```
 
+**Explanation:**  
+- `n=5`, `n>>1 = 2`.  
+- Jumps to `label`.  
+- Prints `"welcome"`.
 ---
 
 ## Problem 46
@@ -1326,17 +1348,19 @@ int main()
         break;
     }
 }
-```
-### Explanation  
-- `ch = 147`.  
-- `ch1 = 66`.  
-- `~ch1 = ~66 = -67`.  
+```  
 
-### Output  
+**Output:**
+
 ```
 ch= 147 , ch1= -67
 ```
 
+**Explanation:**  
+- `ch = 147`.  
+- `ch1 = 66`.  
+- `~ch1 = ~66 = -67`.
+- 
 ---
 
 ## Problem 47
@@ -1351,16 +1375,17 @@ int main()
         coding=!coding;   // becomes 0
     }
 }
-```
-### Explanation  
-- First iteration: `coding=55`.  
-- Prints in hex: `37`.  
-- Then `coding=!55 = 0`. Loop exits.  
+``` 
 
-### Output  
+**Output:**  
 ```
 37
 ```
+
+**Explanation:**  
+- First iteration: `coding=55`.  
+- Prints in hex: `37`.  
+- Then `coding=!55 = 0`. Loop exits.
 
 ---
 
@@ -1377,16 +1402,17 @@ int main()
     }
     printf("%d ",counter);
 }
-```
-### Explanation  
-- Loop runs while `x-1 != 0`.  
-- Iterations: x=5→4→3→2. Stops when x=1.  
-- Counter increments each time. Final counter=5.  
+```  
 
-### Output  
+**Output:**  
 ```
 5
 ```
+
+**Explanation:**  
+- Loop runs while `x-1 != 0`.  
+- Iterations: x=5→4→3→2. Stops when x=1.  
+- Counter increments each time. Final counter=5.
 
 ---
 
@@ -1404,17 +1430,17 @@ int main()
     }
     return 0;
 }
-```
-### Explanation  
-- Outer `i` controls loop: 3 iterations.  
-- Inner `i=100`, decremented → 99 each time.  
-- Prints `99 99 99`.  
+``` 
 
-### Output  
+**Output:**  
 ```
 99 99 99
 ```
 
+**Explanation:**  
+- Outer `i` controls loop: 3 iterations.  
+- Inner `i=100`, decremented → 99 each time.  
+- Prints `99 99 99`. 
 ---
 
 ## Problem 50
@@ -1446,14 +1472,31 @@ int main()
 }
 ```
 
-### Output  
+**Output:**  
 ```
 Number = 12345
 Sum of odd digits = 9
 Product of even digits = 8
 ```
 
+**Explanation:**
+
+num = 12345 → We want to process each digit.
+
+sumOdd stores the sum of odd digits.
+
+prodEven stores the product of even digits.
+
+while(temp > 0) extracts each digit using % 10.
+
+If the digit is even, multiply it with prodEven.
+
+If the digit is odd, add it to sumOdd.
+
+Reduce the number using /= 10.
+
 ---
+
 [🔼 Back to Top](#loop-statements-in-c) | [⬅ Back to Table of Contents](README.md)
 
 ---
