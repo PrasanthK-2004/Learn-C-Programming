@@ -3,7 +3,7 @@
 This file contains 50 example programs to master `Control Statements` in c
 
 ---
-[🔽 Go to Bottom](#program) | [⬅ Back to Table of Contents](README.md)
+[🔽 Go to Bottom](#program-50) | [⬅ Back to Table of Contents](README.md)
 
 ---
 
@@ -1166,5 +1166,9 @@ int main()
 **Output:** `1`
 
 **Explanation:** Condition true. `i==--i` false, so `i=1`.
+
+---
+
+[🔼 Back to Top](#control-statements-in-c) | [⬅ Back to Table of Contents](README.md)
 
 ---
