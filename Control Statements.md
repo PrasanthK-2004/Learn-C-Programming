@@ -3,7 +3,7 @@
 This file contains 50 example programs to master `Control Statements` in c
 
 ---
-[🔽 Go to Bottom](#program-50) | [⬅ Back to Table of Contents](README.md)
+[🔽 Go to Bottom](#problem-50) | [⬅ Back to Table of Contents](README.md)
 
 ---
 
