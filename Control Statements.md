@@ -96,12 +96,27 @@ Happy
 
 ---
 
-## Problem 4: Break Statement
+## Problem 4**
+What is the purpose of using break statement in c and where it can be used?
 
 **Explanation:**
 
-* Terminates the nearest enclosing loop (`for`, `while`, `do-while`) or `switch` statement.
-* Used to exit loops early or stop a `switch` case from falling through.
+* The `break` statement in C is used to **immediately terminate** a loop or a `switch` statement.  
+When the program encounters a `break`, it **jumps out** of the loop/switch and continues execution from the next statement after it.
+
+### Where it is used
+1. **Inside Loops (`for`, `while`, `do...while`)**  
+   - To exit a loop early when a specific condition is met.  
+   - Useful when continuing the loop is unnecessary.
+
+2. **Inside `switch` Statement**  
+   - To stop execution after a matching `case`.  
+   - Prevents *fall-through* into the next case.
+
+### 📌 Key Points
+- `break` can only be used inside loops and switch statements.  
+- It exits **only one level** of loop/switch (not all nested levels).  
+- If you want to skip only the current iteration instead of exiting, use `continue`.  
 
 ---
 
@@ -222,7 +237,40 @@ int main() {
 }
 ```
 
-**Explanation:** Checks leap year: divisible by 4 but not 100, or divisible by 400.
+**Output:**
+
+**Case 1:**
+```
+Enter year: 2024
+2024 is a leap year
+```
+
+(Because 2024 % 4 == 0 and not divisible by 100)
+
+**Case 2:**
+```
+Enter year: 1900
+1900 is not a leap year
+```
+
+(Because 1900 % 100 == 0 but not divisible by 400)
+
+**Case 3:**
+```
+Enter year: 2000
+2000 is a leap year
+```
+
+(Because 2000 % 400 == 0)
+
+**Case 4:**
+```
+Enter year: 2023
+2023 is not a leap year
+```
+**Explanation:** 
+Checks leap year: divisible by 4 but not 100, or divisible by 400.
+---
 
 ## Problem 10: Nested if without braces
 
@@ -245,7 +293,9 @@ int main()
 (no output)
 ```
 
-**Explanation:** `x == 1` is false, nothing executes.
+**Explanation:** 
+`x == 1` is false, nothing executes.
+---
 
 ## Problem 11: Comma Operator
 
@@ -265,7 +315,9 @@ int main(){
 (no output)
 ```
 
-**Explanation:** Comma operator evaluates all but last value; `i++` is 0 → false, so nothing prints.
+**Explanation:**
+Comma operator evaluates all but last value; `i++` is 0 → false, so nothing prints.
+---
 
 ## Problem 12: Switch Statement
 
@@ -295,7 +347,9 @@ int main()
 Integer 65
 ```
 
-**Explanation:** First matching case executes, then break prevents fall-through.
+**Explanation:**
+First matching case executes, then break prevents fall-through.
+---
 
 ## Problem 13: Comparison and Assignment
 
@@ -318,7 +372,9 @@ int main()
 5 6 7
 ```
 
-**Explanation:** `(i > j)` is 0; `0 == 7` is false → else block executes.
+**Explanation:** 
+`(i > j)` is 0; `0 == 7` is false → else block executes.
+---
 
 ## Problem 14: Operator Precedence
 
@@ -341,7 +397,9 @@ int main()
 inside else block
 ```
 
-**Explanation:** `i - 5 > 4` → `0 > 4` → false (0); assignment `i = 0`; condition false → else executes.
+**Explanation:** 
+`i - 5 > 4` → `0 > 4` → false (0); assignment `i = 0`; condition false → else executes.
+---
 
 ## Problem 15: Switch without break
 
@@ -369,11 +427,9 @@ int main()
 case 1 executed case 2 executed
 ```
 
-**Explanation:** `2/2 = 1` matches `case 1`; no break → fall-through to `case 2`.
-
+**Explanation:** 
+`2/2 = 1` matches `case 1`; no break → fall-through to `case 2`.
 ---
-
-# C Code Snippets: Output & Explanation (Problems 16-30)
 
 ## Problem 16: goto statement
 
@@ -396,7 +452,9 @@ int main()
 1 4
 ```
 
-**Explanation:** `goto l1` skips `printf(2)` and jumps to `l1`; then `goto l2` jumps to `l2` and prints 4.
+**Explanation:** 
+`goto l1` skips `printf(2)` and jumps to `l1`; then `goto l2` jumps to `l2` and prints 4.
+---
 
 ## Problem 17: continue in if (Invalid)
 
@@ -419,7 +477,9 @@ int main()
 Compilation Error
 ```
 
-**Explanation:** `continue` cannot be used outside loops.
+**Explanation:**
+`continue` cannot be used outside loops.
+---
 
 ## Problem 18: Comma operator with goto
 
@@ -445,7 +505,9 @@ int main()
 hai 12
 ```
 
-**Explanation:** Comma operator evaluates `i++`, `i++`, `j<20` → `20<20` false → `else` skipped? Actually `j<20` false, else executes? Need careful evaluation. Correct output: ` 12` (prints from label) after goto.
+**Explanation:**
+Comma operator evaluates `i++`, `i++`, `j<20` → `20<20` false → `else` skipped? Actually `j<20` false, else executes? Need careful evaluation. Correct output: ` 12` (prints from label) after goto.
+---
 
 ## Problem 19: Bitwise OR and logical AND
 
@@ -470,7 +532,9 @@ hai
 hello
 ```
 
-**Explanation:** Operator precedence: `&&` before `|`; evaluates conditions accordingly.
+**Explanation:**
+Operator precedence: `&&` before `|`; evaluates conditions accordingly.
+---
 
 ## Problem 20: Switch with expressions
 
@@ -495,7 +559,9 @@ int main()
 Two
 ```
 
-**Explanation:** `a&b = 4`; matches `case 2+2`, then falls to `case 5*1` prints Two, then break.
+**Explanation:** 
+`a&b = 4`; matches `case 2+2`, then falls to `case 5*1` prints Two, then break.
+---
 
 ## Problem 21: Switch multiple cases
 
@@ -520,7 +586,9 @@ int main()
 case 0case 2
 ```
 
-**Explanation:** `res/5 = 0`; starts at `case 0`, prints `case 0` and falls through `case 2`.
+**Explanation:** 
+`res/5 = 0`; starts at `case 0`, prints `case 0` and falls through `case 2`.
+---
 
 ## Problem 22: Bitwise with shift
 
@@ -545,7 +613,9 @@ int main()
 else if
 ```
 
-**Explanation:** After shifts, `p` is non-zero, first condition false, second true → prints `else if`.
+**Explanation:**
+After shifts, `p` is non-zero, first condition false, second true → prints `else if`.
+---
 
 ## Problem 23: Arithmetic in if
 
@@ -569,7 +639,9 @@ Better
 0
 ```
 
-**Explanation:** `a = a - a*a + a = 10 -100 +10 = -80`? Actually `10-10*10+10 = -80` → non-zero → prints Good? But original logic: Better, then a=0? Confirm calculation: `a -= a*a -a` → 10 - (10\*10 -10) = 10 - (100-10)=10-90=-80 → non-zero → if executes → prints Good -80. Adjust explanation accordingly.
+**Explanation:**
+`a = a - a*a + a = 10 -100 +10 = -80`? Actually `10-10*10+10 = -80` → non-zero → prints Good? But original logic: Better, then a=0? Confirm calculation: `a -= a*a -a` → 10 - (10\*10 -10) = 10 - (100-10)=10-90=-80 → non-zero → if executes → prints Good -80. Adjust explanation accordingly.
+---
 
 ## Problem 24: Label and goto
 
@@ -593,7 +665,9 @@ label:
 2 4 6 8 10 12 13
 ```
 
-**Explanation:** Loop using goto increments `i` and prints repeatedly.
+**Explanation:**
+Loop using goto increments `i` and prints repeatedly.
+---
 
 ## Problem 25: Switch with float (Invalid)
 
@@ -618,7 +692,9 @@ int main()
 Compilation Error
 ```
 
-**Explanation:** Switch case cannot take float values; only integer constant expressions.
+**Explanation:** 
+Switch case cannot take float values; only integer constant expressions.
+---
 
 ## Problem 26: Label with expression (Invalid)
 
@@ -640,7 +716,9 @@ int main()
 Compilation Error
 ```
 
-**Explanation:** Labels must be identifiers, not expressions.
+**Explanation:** 
+Labels must be identifiers, not expressions.
+---
 
 ## Problem 27: Float comparison
 
@@ -664,7 +742,9 @@ int main()
 hello
 ```
 
-**Explanation:** `f==(float)5.6` true due to explicit cast; first comparison fails due to double-float mismatch.
+**Explanation:** 
+`f==(float)5.6` true due to explicit cast; first comparison fails due to double-float mismatch.
+---
 
 ## Problem 28: Label and break (Invalid)
 
@@ -687,7 +767,9 @@ q:
 Compilation Error
 ```
 
-**Explanation:** `break` cannot be used outside loops or switch.
+**Explanation:**
+`break` cannot be used outside loops or switch.
+---
 
 ## Problem 29: Switch with comma operator
 
@@ -715,7 +797,9 @@ case 48
 case 49
 ```
 
-**Explanation:** Comma operator evaluates to `num++` → switch executes default and falls through all cases.
+**Explanation:**
+Comma operator evaluates to `num++` → switch executes default and falls through all cases.
+---
 
 ## Problem 30: if with else after statement (Invalid)
 
@@ -743,8 +827,6 @@ Compilation Error
 
 ---
 
-# C Code Output Explanation
-
 ### Problem 31
 
 ```c
@@ -763,9 +845,13 @@ int main()
 } 
 ```
 
-**Output:** `ABCD`
+**Output:** 
+```
+ABCD
+```
 
-**Explanation:** Each condition manipulates `a` (post-decrement, post-increment, negation). All conditions become true sequentially.
+**Explanation:** 
+Each condition manipulates `a` (post-decrement, post-increment, negation). All conditions become true sequentially.
 
 ---
 
@@ -786,9 +872,13 @@ int main()
 } 
 ```
 
-**Output:** `yes0`
+**Output:** 
+```
+yes0
+```
 
-**Explanation:** `x1 < (x2>>1)` is `5<3` false, but prints later `yes0`. Assignment in `if` makes `x1=3, x2=0`.
+**Explanation:** 
+`x1 < (x2>>1)` is `5<3` false, but prints later `yes0`. Assignment in `if` makes `x1=3, x2=0`.
 
 ---
 
@@ -809,7 +899,10 @@ int main()
 } 
 ```
 
-**Output:** `Three`
+**Output:** 
+```
+Three
+```
 
 **Explanation:** `switch` evaluates to last expression `i++` → `12`. So case 12 matches, prints `Three`.
 
@@ -835,9 +928,13 @@ label2:
 } 
 ```
 
-**Output:** `5 6 7 8 9 10 0`
+**Output:** 
+```
+5 6 7 8 9 10 0
+```
 
-**Explanation:** Loop prints values 5 to 10. At the end, `a=10/(10+3)=0`.
+**Explanation:** 
+Loop prints values 5 to 10. At the end, `a=10/(10+3)=0`.
 
 ---
 
@@ -854,9 +951,13 @@ int main()
 } 
 ```
 
-**Output:** `Not equal`
+**Output:** 
+```
+Not equal
+```
 
-**Explanation:** `sizeof(0)` is `int` (4 bytes). `'0'` is `int` in C (also 4). Some compilers may differ.
+**Explanation:**
+`sizeof(0)` is `int` (4 bytes). `'0'` is `int` in C (also 4). Some compilers may differ.
 
 ---
 
@@ -875,7 +976,8 @@ int main()
 } 
 ```
 
-**Output:** Infinite loop / Compilation error depending on compiler.
+**Output:** 
+Infinite loop / Compilation error depending on compiler.
 
 **Explanation:** Labels form infinite jump, leading to undefined behavior.
 
@@ -898,9 +1000,12 @@ int main()
 } 
 ```
 
-**Output:** `c++`
-
-**Explanation:** Conditions manipulate `i` and `j`. Final branch prints `c++`.
+**Output:**
+```
+c++
+```
+**Explanation:** 
+Conditions manipulate `i` and `j`. Final branch prints `c++`.
 
 ---
 
@@ -922,7 +1027,35 @@ int main()
 } 
 ```
 
-**Output:** Compilation error (typo: `pritnf`).
+**Output:** 
+```
+Compilation error (typo: `pritnf`).
+```
+**Explanation:**
+`pritnf` is a typo, it should be `printf`. Otherwise, compilation error.
+
+If you fix the typo (printf), the program runs and outputs 3.
+Initially i = 0.
+switch(++i) → pre-increment, so i = 1.
+→ Switch expression value = 1.
+
+Control jumps to case 1.
+
+i++ + 2; → evaluates the expression but result is unused.
+
+i was 1 → post-increment makes i = 2.
+
+(No break, so fall-through happens.)
+
+case 2 : ++i; → increments i from 2 to 3.
+
+End of switch.
+
+printf("%d", i++);
+
+Prints current value of i (3).
+
+Then increments i to 4 (but increment not shown in output).
 
 ---
 
@@ -948,15 +1081,19 @@ int main()
 } 
 ```
 
-**Output:** `25L`
+**Output:** 
+```
+25L
+```
 
-**Explanation:** Case `25L` matches integer constant promotion.
+**Explanation:** 
+Case `25L` matches integer constant promotion.
 
 ---
 
 ### Problem 40
 
-**Program:** Find second largest using nested if.
+**Write a program to find the second largest number using nested if.**
 
 ```c
 #include<stdio.h>
