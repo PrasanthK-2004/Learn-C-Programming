@@ -239,6 +239,8 @@ int main() {
 
 **Output:**
 
+Checks leap year: divisible by 4 but not 100, or divisible by 400.
+
 **Case 1:**
 ```
 Enter year: 2024
@@ -268,8 +270,8 @@ Enter year: 2000
 Enter year: 2023
 2023 is not a leap year
 ```
-**Explanation:** 
-Checks leap year: divisible by 4 but not 100, or divisible by 400.
+(Because 2023 % 4 != 0 also not divisible by 400)
+
 ---
 
 ## Problem 10: Nested if without braces
