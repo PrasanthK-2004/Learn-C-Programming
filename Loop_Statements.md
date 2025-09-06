@@ -1481,19 +1481,19 @@ Product of even digits = 8
 
 **Explanation:**
 
-num = 12345 → We want to process each digit.
+- `num = 12345` → We want to process each digit.
 
-sumOdd stores the sum of odd digits.
+- `sumOdd` stores the sum of odd digits.
 
-prodEven stores the product of even digits.
+- `prodEven` stores the product of even digits.
 
-while(temp > 0) extracts each digit using % 10.
+- `while(temp > 0)` extracts each digit using % 10.
 
-If the digit is even, multiply it with prodEven.
+- If the digit is even, multiply it with `prodEven`.
 
-If the digit is odd, add it to sumOdd.
+- If the digit is odd, add it to `sumOdd`.
 
-Reduce the number using /= 10.
+- Reduce the number using /= 10.
 
 ---
 
