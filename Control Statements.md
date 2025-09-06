@@ -297,6 +297,7 @@ int main()
 
 **Explanation:** 
 `x == 1` is false, nothing executes.
+
 ---
 
 ## Problem 11: Comma Operator
@@ -319,6 +320,7 @@ int main(){
 
 **Explanation:**
 Comma operator evaluates all but last value; `i++` is 0 → false, so nothing prints.
+
 ---
 
 ## Problem 12: Switch Statement
@@ -351,6 +353,7 @@ Integer 65
 
 **Explanation:**
 First matching case executes, then break prevents fall-through.
+
 ---
 
 ## Problem 13: Comparison and Assignment
@@ -376,6 +379,7 @@ int main()
 
 **Explanation:** 
 `(i > j)` is 0; `0 == 7` is false → else block executes.
+
 ---
 
 ## Problem 14: Operator Precedence
@@ -401,6 +405,7 @@ inside else block
 
 **Explanation:** 
 `i - 5 > 4` → `0 > 4` → false (0); assignment `i = 0`; condition false → else executes.
+
 ---
 
 ## Problem 15: Switch without break
@@ -431,6 +436,7 @@ case 1 executed case 2 executed
 
 **Explanation:** 
 `2/2 = 1` matches `case 1`; no break → fall-through to `case 2`.
+
 ---
 
 ## Problem 16: goto statement
@@ -456,6 +462,7 @@ int main()
 
 **Explanation:** 
 `goto l1` skips `printf(2)` and jumps to `l1`; then `goto l2` jumps to `l2` and prints 4.
+
 ---
 
 ## Problem 17: continue in if (Invalid)
@@ -481,6 +488,7 @@ Compilation Error
 
 **Explanation:**
 `continue` cannot be used outside loops.
+
 ---
 
 ## Problem 18: Comma operator with goto
@@ -509,6 +517,7 @@ hai 12
 
 **Explanation:**
 Comma operator evaluates `i++`, `i++`, `j<20` → `20<20` false → `else` skipped? Actually `j<20` false, else executes? Need careful evaluation. Correct output: ` 12` (prints from label) after goto.
+
 ---
 
 ## Problem 19: Bitwise OR and logical AND
@@ -536,6 +545,7 @@ hello
 
 **Explanation:**
 Operator precedence: `&&` before `|`; evaluates conditions accordingly.
+
 ---
 
 ## Problem 20: Switch with expressions
@@ -563,6 +573,7 @@ Two
 
 **Explanation:** 
 `a&b = 4`; matches `case 2+2`, then falls to `case 5*1` prints Two, then break.
+
 ---
 
 ## Problem 21: Switch multiple cases
@@ -590,6 +601,7 @@ case 0case 2
 
 **Explanation:** 
 `res/5 = 0`; starts at `case 0`, prints `case 0` and falls through `case 2`.
+
 ---
 
 ## Problem 22: Bitwise with shift
@@ -617,6 +629,7 @@ else if
 
 **Explanation:**
 After shifts, `p` is non-zero, first condition false, second true → prints `else if`.
+
 ---
 
 ## Problem 23: Arithmetic in if
@@ -643,6 +656,7 @@ Better
 
 **Explanation:**
 `a = a - a*a + a = 10 -100 +10 = -80`? Actually `10-10*10+10 = -80` → non-zero → prints Good? But original logic: Better, then a=0? Confirm calculation: `a -= a*a -a` → 10 - (10\*10 -10) = 10 - (100-10)=10-90=-80 → non-zero → if executes → prints Good -80. Adjust explanation accordingly.
+
 ---
 
 ## Problem 24: Label and goto
@@ -669,6 +683,7 @@ label:
 
 **Explanation:**
 Loop using goto increments `i` and prints repeatedly.
+
 ---
 
 ## Problem 25: Switch with float (Invalid)
@@ -696,6 +711,7 @@ Compilation Error
 
 **Explanation:** 
 Switch case cannot take float values; only integer constant expressions.
+
 ---
 
 ## Problem 26: Label with expression (Invalid)
@@ -720,6 +736,7 @@ Compilation Error
 
 **Explanation:** 
 Labels must be identifiers, not expressions.
+
 ---
 
 ## Problem 27: Float comparison
@@ -746,6 +763,7 @@ hello
 
 **Explanation:** 
 `f==(float)5.6` true due to explicit cast; first comparison fails due to double-float mismatch.
+
 ---
 
 ## Problem 28: Label and break (Invalid)
@@ -771,6 +789,7 @@ Compilation Error
 
 **Explanation:**
 `break` cannot be used outside loops or switch.
+
 ---
 
 ## Problem 29: Switch with comma operator
@@ -801,6 +820,7 @@ case 49
 
 **Explanation:**
 Comma operator evaluates to `num++` → switch executes default and falls through all cases.
+
 ---
 
 ## Problem 30: if with else after statement (Invalid)
