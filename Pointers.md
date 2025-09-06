@@ -1130,3 +1130,7 @@ int main()
 **Explanation:** Sets all 32 bits → integer becomes all 1's → -1 in two's complement.
 
 ---
+
+[🔼 Back to Top](#c-operators) | [⬅ Back to Table of Contents](README.md)
+
+---
