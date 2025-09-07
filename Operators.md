@@ -159,14 +159,13 @@ int main()
 
 **Output:**
 ```
--1
+-3
 ```
 
 **Explanation:**  
 `s=5 → -s=-5`
-Shift left by 2 = -20
-Shift right by 3 = -3 or -1 (depends on compiler). 
-Typically prints -1.
+-5 Shift left by 2 = -20
+-20 Shift right by 3 = -3  
 
 ---
 
