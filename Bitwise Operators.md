@@ -3,7 +3,7 @@
 
 ---
 
-[🔽 Go to Bottom](#problem-50) | [⬅ Back to Table of Contents](README.md)
+[🔽 Go to Bottom](#output) | [⬅ Back to Table of Contents](README.md)
 
 ---
 
@@ -474,13 +474,17 @@ int main() {
 
 ```
 
-**Output**
+## Output
 ```
 Buffer bytes: 12 34 56 78 9A BC 
 Integer 1: 0x12345678
 Integer 2: 0x9ABC
 
 ```
+---
+[🔼 Back to Top](#bitwise-operators-in-c) | [⬅ Back to Table of Contents](README.md)
+
+---
 
 <p align="center">
   .....The End.....
