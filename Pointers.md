@@ -3,11 +3,11 @@
 This file contains 50 example programs to master `Pointers` in C.
 
 ---
-[🔽 Go to Bottom](#program-50) | [⬅ Back to Table of Contents](README.md)
+[🔽 Go to Bottom](#the-end) | [⬅ Back to Table of Contents](README.md)
 
 ---
 
-## 1. Increment and Pointer Arithmetic on `char*`
+## Problem 1. Increment and Pointer Arithmetic on `char*`
 
 ```c
 #include<stdio.h>
@@ -21,9 +21,11 @@ int main()
 }
 ```
 
-**Output:** `127 382`
-
-**Detailed Explanation:**
+**Output:** 
+```
+127 382
+```
+**Explanation:**
 
 * `p` points to the first byte of integer `x`.
 * `++*p++` increments the value of the first byte (126 → 127), then moves `p` to the next byte.
@@ -32,7 +34,7 @@ int main()
 
 ---
 
-## 2. Checking Sign Bit Using `char*`
+## Problem 2. Checking Sign Bit Using `char*`
 
 ```c
 #include<stdio.h>
@@ -47,7 +49,10 @@ int main()
 }
 ```
 
-**Output:** `hai`
+**Output:** `
+```
+hai
+```
 
 **Explanation:**
 
@@ -57,7 +62,7 @@ int main()
 
 ---
 
-## 3. Invalid Pointer Assignment
+## Problem 3. Invalid Pointer Assignment
 
 ```c
 #include<stdio.h>
@@ -68,7 +73,10 @@ int main()
 }
 ```
 
-**Output:** `0x000000ff`
+**Output:** 
+```
+0x000000ff
+```
 
 **Explanation:**
 
@@ -77,7 +85,7 @@ int main()
 
 ---
 
-## 4. Void Pointer Dereference (Error)
+## Problem 4. Void Pointer Dereference (Error)
 
 ```c
 #include<stdio.h>
@@ -88,21 +96,24 @@ int main()
     // printf("%d", *p); // Error: cannot dereference void*
 }
 ```
-
+**Output:**
+```
+Error
+```
 **Explanation:**
 
 * `void*` has no data type, so dereferencing requires a cast: `printf("%d", *(int*)p);`
 
 ---
 
-## 5. Difference Between Pointer Types
+## Problem 5. Difference Between Pointer Types
 
 * `int *const p`: constant pointer to int (cannot point elsewhere; value can change).
 * `int const *p`: pointer to constant int (value cannot change; pointer can move).
 
 ---
 
-## 6. Size of Pointers
+## Problem 6. Size of Pointers
 
 ```c
 #include<stdio.h>
@@ -114,7 +125,8 @@ int main()
 }
 ```
 
-**Output (64-bit system):**
+**Output:**
+On 64-bit system
 
 ```
 8
@@ -122,11 +134,12 @@ int main()
 8
 ```
 
-**Explanation:** All pointers occupy 8 bytes on a 64-bit system, regardless of the type they point to.
+**Explanation:**
+All pointers occupy 8 bytes on a 64-bit system, regardless of the type they point to.
 
 ---
 
-## 7. Pointer Arithmetic on `void*`
+## Problem 7. Pointer Arithmetic on `void*`
 
 ```c
 #include<stdio.h>
@@ -139,7 +152,10 @@ int main()
 }
 ```
 
-**Output:** `0x9 0xd 0x6`
+**Output:** `
+```
+0x9 0xd 0x6
+```
 
 **Explanation:**
 
@@ -150,7 +166,7 @@ int main()
 
 ---
 
-## 8. Pointer to Float Declaration
+## Problem 8. Pointer to Float Declaration
 
 ```c
 float f = 3.14;
@@ -161,7 +177,7 @@ float *ptr = &f;
 
 ---
 
-## 9. Short Pointer to Int (Undefined Behavior)
+## Problem 9. Short Pointer to Int (Undefined Behavior)
 
 ```c
 #include<stdio.h>
@@ -174,7 +190,10 @@ int main()
 }
 ```
 
-**Output:** `0`
+**Output:** 
+```
+0
+```
 
 **Explanation:**
 
@@ -184,7 +203,7 @@ int main()
 
 ---
 
-## 10. Short Pointer to Char (Undefined Behavior)
+## Problem 10. Short Pointer to Char (Undefined Behavior)
 
 ```c
 #include<stdio.h>
@@ -197,7 +216,10 @@ int main()
 }
 ```
 
-**Output (likely):** `51`
+**Output (likely):** 
+```
+51
+```
 
 **Explanation:**
 
@@ -207,7 +229,7 @@ int main()
 
 ---
 
-## 11. Invalid Pointer Assignments
+## Problem 11. Invalid Pointer Assignments
 
 ```c
 #include<stdio.h>
@@ -220,7 +242,10 @@ int main()
 }
 ```
 
-**Output:** `0x28 0x29`
+**Output:** 
+```
+0x28 0x29
+```
 
 **Explanation:**
 
@@ -229,7 +254,7 @@ int main()
 
 ---
 
-## 12. Short Pointer Manipulation
+## Problem 12. Short Pointer Manipulation
 
 ```c
 #include<stdio.h>
@@ -259,7 +284,7 @@ int main()
 
 ---
 
-## 13. Void Pointer Increment
+## Problem 13. Void Pointer Increment
 
 ```c
 #include<stdio.h>
@@ -271,7 +296,10 @@ int main()
 }
 ```
 
-**Output:** `0x1001`
+**Output:** 
+```
+0x1001
+```
 
 **Explanation:**
 
@@ -280,7 +308,7 @@ int main()
 
 ---
 
-## 14. Pointer Subtraction
+## Problem 14. Pointer Subtraction
 
 ```c
 #include<stdio.h>
@@ -293,7 +321,10 @@ int main()
 }
 ```
 
-**Output:** `4`
+**Output:** 
+```
+4
+```
 
 **Explanation:**
 
@@ -302,7 +333,7 @@ int main()
 
 ---
 
-## 15. Short Pointer to Int Manipulation
+## Problem 15. Short Pointer to Int Manipulation
 
 ```c
 #include<stdio.h>
@@ -317,7 +348,10 @@ int main()
 }
 ```
 
-**Output:** `9602`
+**Output:** 
+```
+9602
+```
 
 **Explanation:**
 
@@ -327,11 +361,7 @@ int main()
 
 ---
 
-# C Pointers: Detailed Examples, Outputs, and Explanations (16-30)
-
----
-
-## 16. Pointer Initialized with Integer
+## Problem 16. Pointer Initialized with Integer
 
 ```c
 #include<stdio.h>
@@ -357,7 +387,7 @@ int main()
 
 ---
 
-## 17. Modifying Integer via Char Pointer
+## Problem 17. Modifying Integer via Char Pointer
 
 ```c
 #include<stdio.h>
@@ -391,7 +421,7 @@ int main()
 
 ---
 
-## 18. Dereferencing Invalid Pointer
+## Problem 18. Dereferencing Invalid Pointer
 
 ```c
 #include<stdio.h>
@@ -404,14 +434,17 @@ int main()
 }
 ```
 
-**Output:** Undefined / segmentation fault
+**Output:** 
+```
+Undefined / segmentation fault
+```
 **Explanation:**
 
 * Pointer holds integer values, dereferencing causes undefined behavior.
 
 ---
 
-## 19. Modifying Integer via Char Pointer
+## Problem 19. Modifying Integer via Char Pointer
 
 ```c
 #include<stdio.h>
@@ -436,7 +469,7 @@ int main()
 
 ---
 
-## 20. Void Pointer (`void*`)
+## Problem 20. Void Pointer (`void*`)
 
 **Explanation:**
 
@@ -472,7 +505,7 @@ int main()
 
 ---
 
-## 22. Null and Arbitrary Pointer Arithmetic
+## Problem 22. Null and Arbitrary Pointer Arithmetic
 
 ```c
 #include<stdio.h>
@@ -498,7 +531,7 @@ int main()
 
 ---
 
-## 23. Pointer and Byte-Level Modifications
+## Problem 23. Pointer and Byte-Level Modifications
 
 ```c
 #include<stdio.h>
@@ -514,14 +547,17 @@ int main()
 }
 ```
 
-**Output:** Undefined, depends on system memory alignment
+**Output:** 
+```
+Undefined, depends on system memory alignment
+```
 **Explanation:**
 
 * Modifies individual bytes via `char*` and `short*`. Printing `*p` and `*q` shows different values due to pointer type.
 
 ---
 
-## 24. Accessing Bytes via Void Pointer
+## Problem 24. Accessing Bytes via Void Pointer
 
 ```c
 #include<stdio.h>
@@ -546,7 +582,7 @@ int main()
 
 ---
 
-## 25. Short Pointer to Int (Undefined Behavior)
+## Problem 25. Short Pointer to Int (Undefined Behavior)
 
 ```c
 #include<stdio.h>
@@ -560,14 +596,18 @@ int main()
 }
 ```
 
-**Output:** Undefined, may print `15 557`
+**Output:** 
+```
+Undefined, may print `15 557`
+```
+
 **Explanation:**
 
 * Writing via `int*` may overwrite memory beyond `x` → undefined behavior.
 
 ---
 
-## 26. Right Shift via Char Pointer
+## Problem 26. Right Shift via Char Pointer
 
 ```c
 #include<stdio.h>
@@ -592,7 +632,7 @@ int main()
 
 ---
 
-## 27. Invalid Void Pointer Dereference
+## Problem 27. Invalid Void Pointer Dereference
 
 ```c
 #include<stdio.h>
@@ -604,14 +644,17 @@ int main()
 }
 ```
 
-**Output:** Undefined / segmentation fault
+**Output:** 
+```
+Undefined / segmentation fault
+```
 **Explanation:**
 
 * Cannot dereference `void*` directly.
 
 ---
 
-## 28. Mixed Pointer Types
+## Problem 28. Mixed Pointer Types
 
 ```c
 #include<stdio.h>
@@ -626,7 +669,8 @@ int main()
 }
 ```
 
-**Output:** Depends on system (little-endian), possible:
+**Output:** 
+Depends on system (little-endian), possible:
 
 ```
 1 256
@@ -638,7 +682,7 @@ int main()
 
 ---
 
-## 29. Void Pointer and Casting
+## Problem 29. Void Pointer and Casting
 
 ```c
 #include<stdio.h>
@@ -663,7 +707,7 @@ int main()
 
 ---
 
-## 30. Unsigned Char Pointer to Negative Int
+## Problem 30. Unsigned Char Pointer to Negative Int
 
 ```c
 #include<stdio.h>
@@ -687,11 +731,7 @@ int main()
 
 ---
 
-# C Pointers: Detailed Examples, Outputs, and Explanations (31-50)
-
----
-
-## 31. Masking Integer Byte
+## Problem 31. Masking Integer Byte
 
 ```c
 #include<stdio.h>
@@ -716,7 +756,7 @@ int main()
 
 ---
 
-## 32. Character Pointer Manipulation
+## Problem 32. Character Pointer Manipulation
 
 ```c
 #include<stdio.h>
@@ -743,7 +783,7 @@ D
 
 ---
 
-## 33. Size of Variable Using Pointer
+## Problem 33. Size of Variable Using Pointer
 
 ```c
 #include<stdio.h>
@@ -767,7 +807,7 @@ int main()
 
 ---
 
-## 34. Pointer Arithmetic Beyond Char
+## Problem 34. Pointer Arithmetic Beyond Char
 
 ```c
 #include<stdio.h>
@@ -791,7 +831,7 @@ int main()
 
 ---
 
-## 35. Print Short Integer in Binary Using Pointer
+## Problem 35. Print Short Integer in Binary Using Pointer
 
 ```c
 #include<stdio.h>
@@ -815,7 +855,7 @@ int main()
 
 ---
 
-## 36. Pointer Subtraction
+## Problem 36. Pointer Subtraction
 
 ```c
 #include<stdio.h>
@@ -840,7 +880,7 @@ int main()
 
 ---
 
-## 37. Size of Pointer and Dereferenced Value
+## Problem 37. Size of Pointer and Dereferenced Value
 
 ```c
 #include<stdio.h>
@@ -864,7 +904,7 @@ int main()
 
 ---
 
-## 38. Constant Pointer Arithmetic (Invalid)
+## Problem 38. Constant Pointer Arithmetic (Invalid)
 
 ```c
 #include<stdio.h>
@@ -876,14 +916,17 @@ int main()
 }
 ```
 
-**Output:** Undefined / compiler error
+**Output:** 
+```
+Undefined / compiler error
+```
 **Explanation:**
 
 * `int const* x = 10` invalid initialization. Cannot perform pointer arithmetic on literal.
 
 ---
 
-## 39. Modifying Integer Bytes via Char Pointer
+## Problem 39. Modifying Integer Bytes via Char Pointer
 
 ```c
 #include<stdio.h>
@@ -901,14 +944,17 @@ int main()
 }
 ```
 
-**Output:** Depends on system, likely `g`
+**Output:** 
+```
+Depends on system, likely `g`
+```
 **Explanation:**
 
 * Modifies each byte of integer. Third byte = ASCII of 'g'.
 
 ---
 
-## 40. Constant Char Pointer Modification (Invalid)
+## Problem 40. Constant Char Pointer Modification (Invalid)
 
 ```c
 #include<stdio.h>
@@ -920,12 +966,15 @@ int main()
 }
 ```
 
-**Output:** Compilation error
+**Output:** 
+```
+Compilation error
+```
 **Explanation:** Cannot modify value pointed to by `const char*`.
 
 ---
 
-## 41. Constant Pointer to Int (Invalid Assignment)
+## Problem 41. Constant Pointer to Int (Invalid Assignment)
 
 ```c
 #include<stdio.h>
@@ -938,12 +987,15 @@ int main()
 }
 ```
 
-**Output:** Compilation error
+**Output:** 
+```
+Compilation error
+```
 **Explanation:** `t` is a constant pointer; cannot point to another variable.
 
 ---
 
-## 42. Invalid Pointer Type Conversion
+## Problem 42. Invalid Pointer Type Conversion
 
 ```c
 #include<stdio.h>
@@ -955,7 +1007,10 @@ int main()
 }
 ```
 
-**Output:** Undefined / garbage
+**Output:** 
+```
+Undefined / garbage
+```
 **Explanation:** Pointer type mismatch; reading beyond memory of `x`.
 
 ---
@@ -973,12 +1028,15 @@ int main()
 }
 ```
 
-**Output:** Undefined / garbage
+**Output:** 
+```
+Undefined / garbage
+```
 **Explanation:** Incremented pointer beyond valid memory.
 
 ---
 
-## 44. Pointer Arithmetic with Offset
+## Problem 44. Pointer Arithmetic with Offset
 
 ```c
 #include<stdio.h>
@@ -1000,7 +1058,7 @@ int main()
 
 ---
 
-## 45. Pointer Subtraction Between Different Types
+## Problem 45. Pointer Subtraction Between Different Types
 
 ```c
 #include<stdio.h>
@@ -1023,7 +1081,7 @@ int main()
 
 ---
 
-## 46. Pointer Arithmetic with Short Int
+## Problem 46. Pointer Arithmetic with Short Int
 
 ```c
 #include<stdio.h>
@@ -1038,12 +1096,16 @@ int main()
 }
 ```
 
-**Output:** Undefined / garbage
+**Output:** 
+```
+Undefined / garbage
+```
+
 **Explanation:** Pointer moves beyond valid memory of `x` and `y`.
 
 ---
 
-## 47. Char and Short Pointer Combination
+## Problem 47. Char and Short Pointer Combination
 
 ```c
 #include<stdio.h>
@@ -1057,12 +1119,15 @@ int main()
 }
 ```
 
-**Output:** Depends on endianness, likely `1`
+**Output:** 
+```
+Depends on endianness, likely `1`
+```
 **Explanation:** Modifies pointer type and accesses overlapping memory.
 
 ---
 
-## 48. Sizeof with Char Pointer to Int
+## Problem 48. Sizeof with Char Pointer to Int
 
 ```c
 #include<stdio.h>
@@ -1084,7 +1149,7 @@ int main()
 
 ---
 
-## 49. Constant Pointer to Constant Int
+## Problem 49. Constant Pointer to Constant Int
 
 ```c
 #include<stdio.h>
@@ -1107,7 +1172,7 @@ int main()
 
 ---
 
-## 50. Set All Bits of Integer
+## Problem 50. Set All Bits of Integer
 
 ```c
 #include<stdio.h>
@@ -1131,6 +1196,8 @@ int main()
 
 ---
 
-[🔼 Back to Top](#c-operators) | [⬅ Back to Table of Contents](README.md)
+[🔼 Back to Top](#c-pointers) | [⬅ Back to Table of Contents](README.md)
 
 ---
+
+## The End
