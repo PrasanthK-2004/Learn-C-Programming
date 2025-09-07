@@ -7,5 +7,6 @@ PrasanthK-2004/Learn-C-Programming
 
 ## - [Data Types & Operator Precedence](Data%20types%20&%20Operator%20Precedence.md)
 ## - [50 example problems for Operators](Operators.md)
+## - [Problems on Bitwise Operators](Bitwise%20Operators.md)
 ## - [50 example problems for Control Statements](Control%20Statements.md)
 ## - [50 example problems for Loop Statements](Loop_Statements.md)
