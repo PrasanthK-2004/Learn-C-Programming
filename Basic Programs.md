@@ -1,3 +1,10 @@
+# Basic Programs in C 
+
+---
+
+[🔽 Go to Bottom](#output) | [⬅ Back to Table of Contents](README.md)
+
+---
 ## 1. Program to print the first n Fibonacci numbers
 
 ```c
