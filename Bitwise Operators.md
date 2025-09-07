@@ -3,7 +3,13 @@
 
 ---
 
-## 1. Set, Clear, and Toggle a Bit  
+[🔽 Go to Bottom](#problem-50) | [⬅ Back to Table of Contents](README.md)
+
+---
+
+## 1. Write a prorgram for the following one.
+##    a) Set a bit      b) Clear a bit    c) Toggle a  bit  
+ 
 
 ```c
 #include <stdio.h>
@@ -39,7 +45,7 @@ Toggle Bit at 1 : 8
 
 ---
 
-## 2. Check Even or Odd  
+## 2. WAP to find the given number is even or odd using bitwise operators  
 
 ```c
 #include <stdio.h>
@@ -60,7 +66,7 @@ int main() {
 
 ---
 
-## 3. Positive or Negative  
+## 3. WAP to find the given number is +ve or -ve using bitwise operators.  
 
 ```c
 #include <stdio.h>
@@ -81,7 +87,7 @@ int main() {
 
 ---
 
-## 4. Swap Two Numbers  
+## 4. WAP to swap two numbers using bitwise operators.  
 
 ```c
 #include <stdio.h>
@@ -102,7 +108,7 @@ After Swap: a = 9, b = 5
 
 ---
 
-## 5. Check Power of 2  
+## 5. WAP to find the given number is power of 2 or not.  
 
 ```c
 #include <stdio.h>
@@ -123,7 +129,7 @@ int main() {
 
 ---
 
-## 6. Divisible by 8  
+## 6. WAP to find the given number is divisble by 8 or not using bitwise operators  
 
 ```c
 #include <stdio.h>
@@ -144,7 +150,15 @@ int main() {
 
 ---
 
-## 7. Bit Rotation  
+## 7. Write a program to rotate the bits. Input  the no.of  rotations, at runtime.
+    Ex : binary  :  10000000000000000000000000001011
+       rotations : suppose 3 times right,  then
+    	result   :  01110000000000000000000000000001
+
+         binary  :  10000000000000000000000000001011
+       rotations : suppose 4 times left,  then
+	      result :   00000000000000000000000010111000
+ 
 
 ```c
 #include <stdio.h>
@@ -179,7 +193,7 @@ Left Rotate 11 by 2 : 44
 
 ---
 
-## 8. Upper to Lower and Lower to Upper  
+## 8. Convert the characters Upper to Lower and Lower to Upper using bitwise operators.  
 
 ```c
 #include <stdio.h>
@@ -198,36 +212,37 @@ int main() {
 ```
 Before Converted: A
 After Converted: a
+```
 
 ---
 
-## 9. Reverse Bits  
+## 9. Write a program to reverse the bits of a given number. 
+Note : not just reverse printing.
 
 ```c
 #include <stdio.h>
-unsigned int reverseBits(unsigned int num) {
-    unsigned int rev = 0;
-    for (int i = 0; i < 32; i++) {
-        rev <<= 1;
-        rev |= (num & 1);
-        num >>= 1;
-    }
-    return rev;
-}
-
 int main() {
-    unsigned int num = 5; // 000...0101
-    printf("Reversed Bits: %u\n", reverseBits(num));
+    unsigned int num = 5;   // 000...0101
+    unsigned int rev = 0;
+
+    for (int i = 0; i < 32; i++) {
+        rev <<= 1;          // shift result left
+        rev |= (num & 1);   // copy LSB of num
+        num >>= 1;          // shift num right
+    }
+
+    printf("Reversed Bits: %u\n", rev);
     return 0;
 }
 ```
+
 **Output**
 ```
 Reversed Bits: 2684354560
 ```
 ---
 
-## 10. One-Line Compare  
+## 10. Write a one line code to compare two numbers equal or not using bitwise operators.  
 
 ```c
 #include <stdio.h>
@@ -243,7 +258,7 @@ Not Equal
 ```
 ---
 
-## 11. Print Float Binary Formation  
+## 11. Write a program to print float binay formation using char *ptr. 
 
 ```c
 #include <stdio.h>
@@ -271,7 +286,10 @@ Binary: 01000001 10111000 00000000 00000000
 ```
 ---
 
-## 12. Swap Adjacent Bytes  
+## 12. Write a program to swap the adjucent bytes of  a given 4-digit hexadecimal number.
+      Ex : given number  = 0x1234;
+	       after swap    = 0x3412;
+  
 
 ```c
 #include <stdio.h>
@@ -294,101 +312,177 @@ int main() {
 
 ```c
 #include <stdio.h>
+
 int main() {
-    int num = 100, pos = 4, n = 2;
-    int mask1 = (1 << pos) - 1;
-    int mask2 = ~((1 << (pos + n)) - 1);
+    int num, pos, n;
+
+    printf("Enter number: ");
+    scanf("%d", &num);
+
+    printf("Enter position to start deleting bits: ");
+    scanf("%d", &pos);
+
+    printf("Enter number of bits to delete: ");
+    scanf("%d", &n);
+
+    int mask1 = (1 << pos) - 1;               // keep lower bits (below pos)
+    int mask2 = ~((1 << (pos + n)) - 1);      // keep higher bits (above pos+n)
     int result = (num & mask1) | ((num & mask2) >> n);
-    printf("Result : %d\n", result);
+
+    printf("Result after deleting bits: %d\n", result);
+
     return 0;
 }
+
 ```
 **Output**
 ```
-Result : 20
+Result after deleting bits: 28
+
 ```
 ---
 
-## 14. Swap First and Last Nibbles  
+## 14. Write a programme for swapping first and last nibbles in a given integer.
+      Ex: Suppose num = 10
+
+      It's Binary is    0000000000000000000000000001010
+      After swap        1010000000000000000000000000000
+    
 
 ```c
 #include <stdio.h>
+
 int main() {
-    unsigned int num = 10;
-    unsigned int first = num & 0xF;
-    unsigned int last = (num >> 28) & 0xF;
-    unsigned int middle = num & 0x0FFFFFF0;
-    unsigned int result = (first << 28) | (last) | middle;
-    printf("Result: %X\n", result);
+    unsigned int num;
+    printf("Enter a number: ");
+    scanf("%u", &num);
+
+    unsigned int first = (num >> 28) & 0xF;   // extract highest nibble
+    unsigned int last  = num & 0xF;           // extract lowest nibble
+    unsigned int middle = num & 0x0FFFFFF0;   // keep middle 28 bits
+
+    unsigned int result = (last << 28) | (first) | middle;
+
+    printf("Original : %u (0x%X)\n", num, num);
+    printf("After Swap: %u (0x%X)\n", result, result);
+
     return 0;
 }
+
 ```
 **Output**
 ```
-0000000A  →  A0000000
-```
+Original : 10 (0xA)
+After Swap: 2684354560 (0xA0000000)
 
----
-
-## 15. Extract P Bits from Position N  
-
-```c
-#include <stdio.h>
-int main() {
-    int M = 0b110101101, N = 3, P = 4;
-    int mask = ((1 << P) - 1) << N;
-    int result = (M & mask) >> N;
-    printf("Extracted Bits: %d\n", result);
-    return 0;
-}
-```
-**Output**
-```
-Extracted Bits: 5
-```
----
-
-## 16. Macro to Clear a Bit  
-
-```c
-#include <stdio.h>
-#define CLEAR_BIT(M,N) (M & ~(1 << N))
-
-int main() {
-    int num = 15;
-    printf("After Clear : %d\n", CLEAR_BIT(num, 1));
-    return 0;
-}
-```
-**Output**
-```
-After Clear : 13
 ```
 
 ---
 
-## 17. Store 48 bits into Two Integers  
+## 15. Write a logic to extract  P bits from Posion N in an integer M  
 
 ```c
 #include <stdio.h>
-#include <string.h>
 
 int main() {
-    unsigned char buf[6] = {0x12, 0x34, 0x56, 0x78, 0x9A, 0xBC};
-    unsigned int high = 0, low = 0;
+    unsigned int M;
+    int N, P;
 
-    memcpy(&high, buf, 4);
-    memcpy(&low, buf + 4, 2);
+    printf("Enter number M: ");
+    scanf("%u", &M);
 
-    printf("High = 0x%X\n", high);
-    printf("Low  = 0x%X\n", low);
+    printf("Enter starting position N: ");
+    scanf("%d", &N);
+
+    printf("Enter number of bits P to extract: ");
+    scanf("%d", &P);
+
+    // Create mask with P ones
+    unsigned int mask = ((1U << P) - 1) << N;
+
+    // Extract bits and shift to LSB
+    unsigned int extracted = (M & mask) >> N;
+
+    printf("Extracted %d bits from position %d: %u\n", P, N, extracted);
 
     return 0;
 }
+
+```
+**Output**
+```
+Extracted 4 bits from position 3: 5
+
+```
+---
+
+## 16. Write a macro to clear a bit at the position N in an integer M.  
+
+```c
+#include <stdio.h>
+
+#define CLEAR_BIT(M, N) ((M) & ~(1U << (N)))
+
+int main() {
+    unsigned int num = 15; // binary: 1111
+    int pos = 1;           // bit position to clear (0-based)
+
+    unsigned int result = CLEAR_BIT(num, pos);
+
+    printf("Original: %u\n", num);
+    printf("After clearing bit %d: %u\n", pos, result);
+
+    return 0;
+}
+
+```
+**Output**
+```
+Original: 15 
+After clearing bit 1: 13 
+
+```
+
+---
+
+## 17. There are 48 bits are stored in an array of character buffer and store them into 2 integer variables.
+ 
+
+```c
+#include <stdio.h>
+
+int main() {
+    unsigned char buffer[6] = {0x12, 0x34, 0x56, 0x78, 0x9A, 0xBC}; // example 48 bits
+    unsigned int int1 = 0, int2 = 0;
+
+    // Pack first 4 bytes (32 bits) into int1
+    int1 = (buffer[0] << 24) | (buffer[1] << 16) | (buffer[2] << 8) | buffer[3];
+
+    // Pack remaining 2 bytes into int2 (upper 16 bits) 
+    int2 = (buffer[4] << 8) | buffer[5];
+
+    printf("Buffer bytes: ");
+    for(int i=0; i<6; i++)
+        printf("%02X ", buffer[i]);
+    printf("\n");
+
+    printf("Integer 1: 0x%X\n", int1);
+    printf("Integer 2: 0x%X\n", int2);
+
+    return 0;
+}
+
 ```
 
 **Output**
 ```
-High = 0x78563412
-Low  = 0xBC9A
+Buffer bytes: 12 34 56 78 9A BC 
+Integer 1: 0x12345678
+Integer 2: 0x9ABC
+
 ```
+
+<p align="center">
+  .....The End.....
+</p>
+
