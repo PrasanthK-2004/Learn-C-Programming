@@ -2,7 +2,7 @@
 
 ---
 
-[🔽 Go to Bottom](#output) | [⬅ Back to Table of Contents](README.md)
+[🔽 Go to Bottom](#the-end) | [⬅ Back to Table of Contents](README.md)
 
 ---
 ## 1. Program to print the first n Fibonacci numbers
@@ -1211,6 +1211,8 @@ Strong numbers between 1 and 500 are:
 ```
 
 ---
+[🔼 Back to Top](#basic-programs-in-c) | [⬅ Back to Table of Contents](README.md)
 
-
+---
+## The End
 
