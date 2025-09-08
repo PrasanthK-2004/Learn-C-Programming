@@ -884,10 +884,10 @@ Enter a number: 28
 
 ```
 Case 2:
+
+```
 Enter a number: 20
 20 is NOT a Perfect Number
-```
-
 ```
 
 ---
