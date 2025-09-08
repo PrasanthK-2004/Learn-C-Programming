@@ -877,7 +877,7 @@ int main() {
 ```
 
 **Output:**
-Csae 1:
+Case 1:
 ```
 Enter a number: 28
 28 is a Perfect Number
