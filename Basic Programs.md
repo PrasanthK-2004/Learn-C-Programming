@@ -86,7 +86,7 @@ int main() {
         isPrime = 0;  // 0 and 1 are not prime
     } else {
         // Check for factors from 2 to sqrt(n)
-        for(i = 2; i * i <= n; i++) {
+        for(i = 2; i <= n / 2; i++) {
             if(n % i == 0) {
                 isPrime = 0;  // Not prime
                 break;
@@ -511,7 +511,7 @@ int main() {
 
     p = &n; // pointer to the number
 
-    printf("binary of %u is: ", n);
+    printf("binary of %d is: ", n);
 
     for(int i = 31; i >= 0; i--) {
         printf("%d", (*p >> i) & 1); // shift and mask each bit
