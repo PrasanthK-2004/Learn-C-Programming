@@ -25,7 +25,8 @@ y
 ```
 
 **Explanation:**  
-`'E'` is ASCII 69, `'A'` is 65. `69 + 65 - 13 = 121`, which is `'y'`.
+- `'E'` is ASCII 69, `'A'` is 65.
+-  `69 + 65 - 13 = 121`, which is `'y'`.
 
 ---
 
@@ -116,8 +117,8 @@ int main()
 ```
 
 **Explanation:**  
-`y++` is false (y=0). 
-So ternary chooses else branch → z=5.
+- `y++` is false (y=0). 
+- So ternary chooses else branch → z=5.
 
 ---
 
@@ -139,9 +140,9 @@ int main()
 ```
 
 **Explanation:**  
-`sizeof` is compile-time, so assignment doesn’t run.
-x=6. 
-sizeof(int)=4.
+- `sizeof` is compile-time, so assignment doesn’t run.
+- x=6. 
+- sizeof(int)=4.
 
 ---
 
@@ -163,9 +164,9 @@ int main()
 ```
 
 **Explanation:**  
-`s=5 → -s=-5`
--5 Shift left by 2 = -20
--20 Shift right by 3 = -3  
+- `s=5 → -s=-5`
+- -5 Shift left by 2 = -20
+- -20 Shift right by 3 = -3  
 
 ---
 
@@ -187,8 +188,8 @@ int main() {
 ```
 
 **Explanation:**  
-`!flag` is calculated but not stored. 
-Then `flag &= !flag → 1 & 0 = 0`.
+- `!flag` is calculated but not stored. 
+- Then `flag &= !flag → 1 & 0 = 0`.
 
 ---
 
@@ -210,9 +211,9 @@ void main()
 ```
 
 **Explanation:**  
-`++a=11` true. Then `++b=-10` true (nonzero). 
-So left side true. `||` short-circuits.
-d=1 and c not incremented.
+- `++a=11` true. Then `++b=-10` true (nonzero). 
+- So left side true. `||` short-circuits.
+- d=1 and c not incremented.
 
 ---
 
@@ -236,8 +237,8 @@ void main()
 ```
 
 **Explanation:**  
-Shifts are unused (results discarded).
-Only a++ runs. 10 becomes 11.
+- Shifts are unused (results discarded).
+- Only a++ runs. 10 becomes 11.
 
 ---
 
@@ -259,8 +260,8 @@ void main()
 ```
 
 **Explanation:**  
-566 mod 256 = 54 (char overflow). 
-After increment, x=55.
+- 566 mod 256 = 54 (char overflow). 
+- After increment, x=55.
 
 ---
 
@@ -281,9 +282,9 @@ int main() {
 ```
 
 **Explanation:**  
-~j = ~(-5)=4
-~i=~4=-5
-4 & -5 = 4
+- ~j = ~(-5)=4
+- ~i=~4=-5
+- 4 & -5 = 4
 
 ---
 
@@ -305,9 +306,9 @@ int main() {
 ```
 
 **Explanation:**  
-076 (octal)=62 decimal
-62|3=63
-63&4=4.
+- 076 (octal)=62 decimal
+- 62|3=63
+- 63&4=4.
 
 ---
 
@@ -326,12 +327,14 @@ void main()
 
 **Output:**
 ```
-1
+Compiler Error
 ```
 
 **Explanation:**  
-Assignment inside equality. `b=a=10`. 
-Then check `a==10` → true → 1.
+- The compiler parses it (due to precedence) as:
+- c = (a == b) = a;  // ! this is NOT allowed
+- (a == b) is not an lvalue → cannot appear on the left of =.
+- Hence: lvalue required.
 
 ---
 
@@ -378,7 +381,13 @@ void main()
 ```
 
 **Explanation:**  
-First comparison false (undefined but usually false). Second comparison true.
+- x is 5 initially.
+- x++ → returns 5, but x will be incremented (x becomes 6).
+- ++x → increments x again (x becomes 7) and uses the value 7.
+- Now we compare: 5 == 7 → false (0)//y=0
+- ++x increments x to 8
+- Right-hand x is now 8
+- So comparison: 8 == 8 → true (1)//y=1
 
 ---
 
@@ -400,7 +409,12 @@ int main()
 ```
 
 **Explanation:**  
-`!(!17.5)` is int. sizeof(int)=4.
+- Inner ! operator:
+- 17.5 is nonzero, so !17.5 → 0
+
+- Outer ! operator:
+!0 → 1
+- So !(!17.5) evaluates to 1.
 
 ---
 
@@ -422,13 +436,13 @@ int main()
 ```
 
 **Explanation:**
-++p → increases p from 4 to 5.
-++p / x = 5 / 6 → integer division → 0
+- ++p → increases p from 4 to 5.
+- ++p / x = 5 / 6 → integer division → 0
 
---q → decreases q from -5 to -6.
---q * p / y = (-6) * 5 / 2 = -30 / 2 = -15
+- --q → decreases q from -5 to -6.
+- --q * p / y = (-6) * 5 / 2 = -30 / 2 = -15
 
-Add both parts: 0 + (-15) = -15
+- Add both parts: 0 + (-15) = -15
 
 ---
 
