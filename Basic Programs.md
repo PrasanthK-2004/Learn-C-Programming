@@ -537,28 +537,65 @@ Enter a decimal number: 13
 ## 14. Program to find greatest of 3 numbers 
 
 ```c
-#include<stdio.h> 
+#include <stdio.h>
 int main() 
 { 
-int num1,num2,num3; 
-printf("\nEnter value of num1, num2 and num3:\n"); 
-scanf("%d %d %d",&num1,&num2,&num3); 
-if((num1>num2)&&(num1>num3)) 
-printf("\n Number1 is greatest\n"); 
-else if((num2>num3)&&(num2>num1)) 
-printf("\n Number2 is greatest\n"); 
-else 
-printf("\n Number3 is greatest\n"); 
-return 0; 
-} 
+    int num1, num2, num3; 
+    printf("\nEnter value of num1, num2 and num3:\n"); 
+    scanf("%d %d %d", &num1, &num2, &num3); 
+
+    if (num1 == num2 && num2 == num3) {
+        printf("\nAll numbers are equal\n");
+    }
+    else if (num1 >= num2 && num1 >= num3) {
+      
+        printf("Number1");
+        if (num1 == num2) printf(" and Number2 are equal and greater"); 
+        if (num1 == num3) printf(" and Number3 are equal and greater"); 
+        printf("\n");
+    }
+    else if (num2 >= num1 && num2 >= num3) {
+        
+        printf("Number2");
+        if (num2 == num1) printf(" and Number1 are equal and greater"); 
+        if (num2 == num3) printf(" and Number3 are equal and greater"); 
+        printf("\n");
+    }
+    else {
+        
+        printf("Number3");
+        if (num3 == num1) printf(" and Number1 are equal and greater"); 
+        if (num3 == num2) printf(" and Number2 are equal and greater"); 
+        printf("\n");
+    }
+
+    return 0; 
+}
+
 ```
 
 **Output:**
+Case 1:
 ```
 Enter value of num1, num2 and num3:
 12 18 40
-Number3 is greatest
 
+Number3
+
+```
+Case 2:
+```
+Enter value of num1, num2 and num3:
+10 10 10
+
+All numbers are equal
+```
+Case 3:
+```
+Enter value of num1, num2 and num3:
+20 20 5
+
+Number1 and Number2 are equal and greater
 ```
 
 ---
