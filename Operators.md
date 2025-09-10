@@ -278,13 +278,13 @@ int main() {
 
 **Output:**
 ```
-4
+0
 ```
 
 **Explanation:**  
-- ~j = ~(-5)=4
-- ~i=~4=-5
-- 4 & -5 = 4
+- ~i = -5
+- ~j = 4
+- ~j & ~i = 0
 
 ---
 
@@ -483,14 +483,15 @@ int main()
 **Output:**
 
 ```
-0 6 6
+1 5 5
 ```
 
 **Explanation:**
 
-`a==5` → false → 0
- `a=5` → assigns 5 → 5
- `++a` → increments → 6
+- Evaluates ++a first: a = 10 → 11
+- Evaluates a = 5 → a = 5
+- Evaluates a == 5 → 1 
+- Since a is now 5, it prints 5 at ++a.
 
 ---
 
@@ -510,14 +511,15 @@ int main()
 **Output:**
 
 ```
-8
+4
 8
 ```
 
 **Explanation:**
 
- `p+q` → promoted to `float` → 8 bytes on 64-bit systems
- `sizeof(sizeof(6.7))` → `sizeof(size_t)` → 8 bytes
+ - `p+q` → promoted to `float` → 4 bytes (on most systems)
+ - `sizeof(sizeof(6.7))` → 6.7 is double. sizeof(6.7) gives the size of a double, usually 8 bytes.
+- `sizeof(size_t)`, where `size_t` is the type returned by the `sizeof` operator which is `double` usually 8 bytes on 64-bit systems.
 
 ---
 
@@ -536,13 +538,16 @@ int main()
 **Output:**
 
 ```
-ffffff8a
+fffffe28
 ```
 
 **Explanation:**
 
- `~0x75 = 0x8a` → left shift by 2 → `0x228`
- Printed as signed 32-bit int in hex: `ffffff8a`
+| Expression | Binary (32-bit)                     | Hex        | Decimal |
+| ---------- | ----------------------------------- | ---------- | ------- |
+| `x`        | 00000000 00000000 00000000 01110101 | 0x00000075 | 117     |
+| `~x`       | 11111111 11111111 11111111 10001010 | 0xFFFFFF8A | -118    |
+| `~x << 2`  | 11111111 11111111 11111110 00101000 | 0xFFFFFE28 | -472    |
 
 ---
 
@@ -561,12 +566,14 @@ int main()
 **Output:**
 
 ```
-18
+12
 ```
 
 **Explanation:**
 
- `y/=2` → 12, `y=y/2` → 6, sum → 18
+ - `y=y/2 → 25/2=12`
+ -  `y=y/2 → 12/2=6`, now y value is reassigned as 6
+ -  `x=(y/=2) + (y=y/2)` → x=y+y → 6+6=12
 
 ---
 
@@ -688,13 +695,15 @@ int main()
 **Output:**
 
 ```
-2
+Compile error
 ```
 
 **Explanation:**
 
- `a ||= 2` → sets `a` to 1 if non-zero → 1
- `a &&=2` → evaluates to 2
+The error occurs because ||= and &&= are NOT valid operators in standard C. They are not part of the C language; they exist in some other languages like Perl or Bash, but not in C.
+
+- `a = a || 2` is valid. (`||=` is not valid).
+- `a = a && 2` is valid. (`&&=` is not valid).
 
 ---
 
@@ -713,13 +722,24 @@ int main()
 
 ```
 fffffc01
-37777777775
+37777777701
 ```
 
 **Explanation:**
 
-Prints signed negative numbers in hex/octal using 2’s complement.
-
+**Convert -1023 to Hex**
+- Decimal: 1023 → Hex: 0x000003FF (32-bit)
+- Two’s complement of -1023:
+- Invert bits: 0xFFFFFC00
+- Add 1: 0xFFFFFC01
+---
+**Convert -63 to Octal**
+- Decimal: 63 → Binary: 00000000 00000000 00000000 00111111
+- Two’s complement of -63:
+- Invert bits: 11111111 11111111 11111111 11000000
+- Add 1: 11111111 11111111 11111111 11000001
+- Convert to octal → 37777777701
+  
 ---
 
 ## Program 31
@@ -758,7 +778,8 @@ int main()
 }
 ```
 
-**Output:** Compile error: cannot apply `++` to rvalue.
+**Output:** 
+- Compile error: ++i=6, in ++6 we cannot apply `++` to rvalue.
 
 ---
 
@@ -778,13 +799,28 @@ int main()
 **Output:**
 
 ```
-5
+133
 ```
 
 **Explanation:**
 
-Operator precedence: `<<` before `+`
-Result ANDed with 0xaf → OR with 5 → 5
+- Evaluate `6 + 1 - 2 → 5`
+- Octal `04` → decimal `4`
+- Left shift: `4 << 5` → `4 * 2^5 = 4 * 32 = 128`
+- Bitwise AND with `0xaf` → `128 & 0xaf`
+```
+128 = 1000 0000 (binary)
+0xaf = 1010 1111 (binary)
+1000 0000 & 1010 1111 = 1000 0000 → 128
+```
+Bitwise OR assignment with num
+```
+num|= 128
+num = 5 | 128
+  5 = 0000 0101
+128 = 1000 0000   (OR)
+      1000 0101 → 133
+```
 
 ---
 
@@ -857,7 +893,7 @@ int main()
 **Output:**
 
 ```
-5 9 2 8 25
+5 9 2 8 23
 ```
 
 **Explanation:**
@@ -1040,14 +1076,17 @@ int main() {
 
 ```
 80000000
-4000
+ffff0000
 ```
 
 **Explanation:**
 
-'a' as int → 4 bytes → 1<<31=0x80000000
-
-a >>= 15 → 0x10000
+- 'a' is a character constant, promoted to int → `sizeof('a')` = 4 bytes (32 bits).
+- Shift: `0x1 << (32 - 1)` = `0x1 << 31` → sets most significant bit.
+-Result in hex: `0x80000000`
+- `sizeof(int)*4 - 1` = `15`
+- Right shift preserves the sign bit (arithmetic shift).
+- `0x80000000 >> 15`= `0xFFFF0000`
 
 ---
 
@@ -1092,17 +1131,18 @@ int main()
 **Output:**
 
 ```
--5 -1
+-4 -12
 ```
 
 **Explanation:**
 
-| Step | Operation  | p  | q  |
-| ---- | ---------- | -- | -- |
-| 0    | Initial    | 5  | -6 |
-| 1    | p ^= p - q | 14 | -6 |
-| 2    | q ^= p     | 14 | -1 |
-| 3    | p ^= -p    | -5 | -1 |
+| Step | Operation      | p   | q    |
+| ---- | -------------- | --- | ---- |
+| 0    | Initial        | 5   | -6   |
+| 1    | p ^= p - q     | 14  | -6   |
+| 2    | q ^= p         | 14  | -12  |
+| 3    | p ^= -p        | -4  | -12  |
+
 
 
 ---
@@ -1121,18 +1161,17 @@ int main()
 **Output:**
 
 ```
-5
+8
 ```
 
 **Explanation:**
 
-a += 3 → a = 1 + 3 = 4
-
-5 → ignored, just evaluated
-
-a → current value of a is 4 → this is the result of the comma operator
-
-So, (a += 3, 5, a) evaluates to 4.
+- a += 3 → adds 3 to a → a = 1 + 3 = 4
+- 5 → evaluated but ignored
+- a → current value of a is 4 → this is the result of the comma operator
+- So, (a += 3, 5, a) evaluates to 4.
+- Evaluate a += (result):
+- a += 4 → a = 4 + 4 = 8
 
 ---
 
@@ -1152,16 +1191,20 @@ int main()
 **Output:**
 
 ```
-20
+30
 ```
 
 **Explanation:**
 
-a/b = 10/20=0 → false → select c=30
+- a / b → 10 / 20 = 0 (integer division)
+- Condition is false
+- Since a / b is false → result = c
+- So res = 30
 
 ---
 
 ## Program 48
+**What is the value of x in the following expression.**
 
 ```c
 x %= 7.0 % 2
@@ -1169,7 +1212,7 @@ x %= 7.0 % 2
 
 **Explanation:**
 
-* Invalid in C: `%` works only on integers. For floats, use `fmod()`.
+* Invalid in C: `%` works only on integers. For floats, use `fmod()` function from <math.h>.
 
 ---
 
@@ -1188,15 +1231,25 @@ int main() {
 **Output:**
 
 ```
-40000000
-2000
+0
+0
 ```
 
 **Explanation:**
 
-0x2 << 31 = 0x40000000
+- 'a' is a character constant, promoted to int.
+- `sizeof('a')` = 4 bytes → 32 bits.
+- Expression 0x2 << (32 - 1) → 0x2 << 31
+- `0x2` in binary: 10
+- Shifting 31 bits left → requires 33 bits to represent.
+- But int is only 32 bits → overflow occurs.
 
-Shift right 15 → 0x2000
+**C Standard:**
+- Shifting a signed integer into or past its sign bit is undefined behavior.
+- Compilers may:
+- Wrap the value around
+- Produce 0
+- Generate a warning
 
 ---
 
@@ -1234,13 +1287,10 @@ Bit 2 is SET in 5
 
 **Explanation:**
 
-(1 << bit) → creates a mask with only the desired bit set.
-
-num & mask → performs bitwise AND:
-
-If result ≠ 0 → bit is set
-
-If result = 0 → bit is not set
+- `(1 << bit)` → creates a mask with only the desired bit set.
+- num & mask → performs bitwise AND:
+- If result ≠ 0 → bit is set
+- If result = 0 → bit is not set
 
 ---
 
