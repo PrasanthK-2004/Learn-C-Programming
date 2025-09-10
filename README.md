@@ -13,3 +13,4 @@ PrasanthK-2004/Learn-C-Programming
 ## - [50 example problems for Loop Statements](Loop_Statements.md)
 ## - [50 example problems for Pointers](Pointers.md)
 ## - [Programs on Arrays](Arrays.md)
+## - [Sorting Algorithm](Sorting.md)
