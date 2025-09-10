@@ -843,8 +843,9 @@ The second biggest element in the array is: 30
 ```
 
 ---
+
 [🔼 Back to Top](#array-programs-in-c) | [⬅ Back to Table of Contents](README.md)
 
 ---
+
 ## The End
----
