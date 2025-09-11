@@ -76,7 +76,7 @@ Reversed string: dlroW olleH
 
 ---
 
-## 3. Program to reverse a string and print it.
+## 3. Program to reverse a string and store it into another string 
 
 ```c
 #include <stdio.h>
@@ -115,7 +115,46 @@ Reversed string: C oT emocleW
 
 ---
 
-## 4. Program to change the case of alphabets in a string.
+## 4. Program to reverse a string in the same array (without using another array).
+
+```c
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char str[100],temp;
+    int i, j, length;
+
+    printf("Enter a string: ");
+    scanf("%[^\n]", str);   // Reads input including spaces
+
+    length = strlen(str);
+
+    // Reverse in-place by swapping
+    for (i = 0, j = length - 1; i < j; i++, j--) {
+        temp = str[i];
+        str[i] = str[j];
+        str[j] = temp;
+    }
+
+    printf("Reversed string: %s\n", str);
+
+    return 0;
+}
+
+```
+
+**Output:**
+
+```
+Enter a string: Welcome To C
+Reversed string: C oT emocleW
+
+```
+
+---
+
+## 5. Program to change the case of alphabets in a string.
 
 ```c
 #include <stdio.h>
@@ -152,7 +191,7 @@ Case changed string: eMbEdDeD c
 
 ---
 
-## 5. Program to count the number of alphabets, digits, and special characters in a string.
+## 6. Program to count the number of alphabets, digits, and special characters in a string.
 
 ```c
 #include <stdio.h>
@@ -200,7 +239,7 @@ Special characters: 2
 
 ---
 
-## 6. Program to count the frequency of each character in a string.
+## 7. Program to count the frequency of each character in a string.
 
 ```c
 #include <stdio.h>
@@ -258,7 +297,7 @@ W : 1
 
 ---
 
-## 7. Program to check whether a string is a palindrome or not.
+## 8. Program to check whether a string is a palindrome or not.
 
 ```c
 #include <stdio.h>
