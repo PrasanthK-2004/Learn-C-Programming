@@ -1,4 +1,4 @@
-# Array Programs in C 
+# Strings in C 
 
 ---
 
@@ -299,3 +299,8 @@ Palindrome
 ```
 
 ---
+
+[🔼 Back to Top](#strings-in-c) | [⬅ Back to Table of Contents](README.md)
+
+---
+## The End
