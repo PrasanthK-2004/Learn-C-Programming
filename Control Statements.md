@@ -96,8 +96,8 @@ Happy
 
 ---
 
-## Problem 4**
-What is the purpose of using break statement in c and where it can be used?
+## Problem 4
+**What is the purpose of using break statement in c and where it can be used?**
 
 **Explanation:**
 
@@ -138,13 +138,21 @@ int main()
 **Output:**
 
 ```
-DEF
+ABC
 ```
 
 **Explanation:** 
 
-`char ch = 259` overflows to 3 (mod 256); `++x = 3`.
-so condition true → prints `ABC` (depends on signed/unsigned char, typical signed char prints DEF).
+- `char ch = 259`;
+- A char can store values from -128 to 127 (signed) or 0 to 255 (unsigned).
+- Assigning 259 wraps around modulo 256 → 259 % 256 = 3.
+- So ch = 3.
+- ++x
+- x is initially 2.
+- `++x` increments it by 1 → x = 3.
+- if(ch == ++x)
+- Becomes `if(3 == 3)` → true.
+- Therefore, the if block executes → prints: `ABC`
 
 ---
 
@@ -348,11 +356,14 @@ int main()
 **Output:**
 
 ```
-Integer 65
+Error
 ```
 
 **Explanation:**
-First matching case executes, then break prevents fall-through.
+- 'A' in ASCII = 65.
+- `case 65`: is already defined.
+- In a C switch statement, all case labels must be unique.
+- Since case 'A': is the same as case 65:, the compiler gives a duplicate case value error.
 
 ---
 
@@ -568,11 +579,15 @@ int main()
 **Output:**
 
 ```
-Two
+OneTwo
 ```
 
 **Explanation:** 
-`a&b = 4`; matches `case 2+2`, then falls to `case 5*1` prints Two, then break.
+`a&b = 4`; matches `case 2+2`
+- Switch finds the first matching case: case 4 → executes `printf("One")`;
+- No break after `case 2+2:` execution falls through to the next case.
+- `case 5*1:` executes → `printf("Two")`; and then break; stops the switch.
+- `case 20/5-1` and `default` are skipped.
 
 ---
 
@@ -585,10 +600,10 @@ int main()
     int res=1; 
     switch(res/5) 
     { 
-        case 1:printf("case 1"); 
-        case 0:printf("case 0"); 
-        case 2:printf("case 2");break; 
-        default:printf("def"); 
+        case 1:printf("case 1\n"); 
+        case 0:printf("case 0\n"); 
+        case 2:printf("case 2\n");break; 
+        default:printf("def\n"); 
     } 
 } 
 ```
@@ -596,11 +611,12 @@ int main()
 **Output:**
 
 ```
-case 0case 2
+case 0
+case 2
 ```
 
 **Explanation:** 
-`res/5 = 0`; starts at `case 0`, prints `case 0` and falls through `case 2`.
+`res/5 = 0`; starts at `case 0`, prints `case 0` and falls through `case 2`,because no break after `case 0:`
 
 ---
 
@@ -650,12 +666,14 @@ int main()
 **Output:**
 
 ```
-Better
-0
+Good
+-80
 ```
 
 **Explanation:**
-`a = a - a*a + a = 10 -100 +10 = -80`? Actually `10-10*10+10 = -80` → non-zero → prints Good? But original logic: Better, then a=0? Confirm calculation: `a -= a*a -a` → 10 - (10\*10 -10) = 10 - (100-10)=10-90=-80 → non-zero → if executes → prints Good -80. Adjust explanation accordingly.
+- `a -= a*a - a` → updates `a` to `10 - (10*10 - 10) = -80`.
+- In C, any non-zero value in if is true, so `"Good"` is printed.
+- Finally, `a` is `-80`, so `printf("%d", a)` prints `-80`.
 
 ---
 
@@ -678,12 +696,18 @@ label:
 **Output:**
 
 ```
-2 4 6 8 10 12 13
+2 5 8 11 12
 ```
 
 **Explanation:**
-Loop using goto increments `i` and prints repeatedly.
+| Step | i before i+=2 | i after i+=2 | Print i | Condition `i++<10` | i after i++ | Goto? |
+| ---- | ------------- | ------------ | ------- | ------------------ | ----------- | ----- |
+| 1    | 0             | 2            | 2       | 2<10 ✅             | 3           | Yes   |
+| 2    | 3             | 5            | 5       | 5<10 ✅             | 6           | Yes   |
+| 3    | 6             | 8            | 8       | 8<10 ✅             | 9           | Yes   |
+| 4    | 9             | 11           | 11      | 11<10 ❌            | 12          | No    |
 
+- Now loop ends, execute final `printf("%d ", i)` → prints `12`.
 ---
 
 ## Problem 25: Switch with float (Invalid)
