@@ -5,7 +5,7 @@
 [🔽 Go to Bottom](#the-end) | [⬅ Back to Table of Contents](README.md)
 
 ---
-## 1.Program to find the length of a string without using the built-in strlen() function.
+## 1. Program to find the length of a string without using the built-in strlen() function.
 
 ```c
 #include <stdio.h>
