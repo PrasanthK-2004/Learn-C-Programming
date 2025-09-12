@@ -836,14 +836,15 @@ int main()
 **Output:**
 
 ```
-default
-case 47
 case 48
 case 49
 ```
 
 **Explanation:**
-Comma operator evaluates to `num++` → switch executes default and falls through all cases.
+- Comma operator evaluates to `num++` → returns 48, then num updated to 49 in memory.
+- case 48: → prints "case 48\n"
+- Falls through to case 49: → prints "case 49\n"
+- There is no break, but default is before the cases, so it won’t execute.
 
 ---
 
@@ -893,11 +894,16 @@ int main()
 
 **Output:** 
 ```
-ABCD
+AD
 ```
 
 **Explanation:** 
-Each condition manipulates `a` (post-decrement, post-increment, negation). All conditions become true sequentially.
+| Statement | Value of a before | Condition | Prints | a after |
+| --------- | ----------------- | --------- | ------ | ------- |
+| `if(a--)` | 1                 | true      | A      | 0       |
+| `if(a++)` | 0                 | false     |        | 1       |
+| `if(!a)`  | 1                 | false     |        | 1       |
+| `if(!!a)` | 1                 | true      | D      | 1       |
 
 ---
 
@@ -920,11 +926,16 @@ int main()
 
 **Output:** 
 ```
-yes0
+3
 ```
 
 **Explanation:** 
-`x1 < (x2>>1)` is `5<3` false, but prints later `yes0`. Assignment in `if` makes `x1=3, x2=0`.
+| Step | Expression         | Value / Result               |
+| ---- | ------------------ | ---------------------------- |
+| 1    | x1 < x2 >> 1       | 5 < 3 → false                |
+| 2    | x3 <= x2 >> 0      | 6 <= 6 → true                |
+| 3    | if(x1 = 3, x2 = 0) | last expr = 0 → false → else |
+| 4    | printf("%d", x1)   | prints 3                     |
 
 ---
 
@@ -950,7 +961,8 @@ int main()
 Three
 ```
 
-**Explanation:** `switch` evaluates to last expression `i++` → `12`. So case 12 matches, prints `Three`.
+**Explanation:** 
+`switch` evaluates to last expression `i++` → `12`. So case 12 matches, prints `Three`.
 
 ---
 
@@ -976,11 +988,17 @@ label2:
 
 **Output:** 
 ```
-5 6 7 8 9 10 0
+5 6 7 8 9 0
 ```
 
 **Explanation:** 
-Loop prints values 5 to 10. At the end, `a=10/(10+3)=0`.
+- a starts at 5.
+- if(a--, ++a) uses comma operator → last value (++a) is the condition.
+- For first iteration: a-- → 4, ++a → 5 → true → prints 5.
+- a++ increments a for the next iteration.
+- if(a == 10) → when a reaches 10, jumps to label2.
+- Loop repeats, printing 5 6 7 8 9.
+- At label2: a /= a + 3;   10 / 13 → 0
 
 ---
 
@@ -999,11 +1017,12 @@ int main()
 
 **Output:** 
 ```
-Not equal
+Equal
 ```
 
 **Explanation:**
-`sizeof(0)` is `int` (4 bytes). `'0'` is `int` in C (also 4). Some compilers may differ.
+
+`sizeof(0)` is `int` (4 bytes). `'0'` is `int` in C (also 4). 
 
 ---
 
@@ -1023,9 +1042,13 @@ int main()
 ```
 
 **Output:** 
-Infinite loop / Compilation error depending on compiler.
+```
+Infinite loop .
+```
 
-**Explanation:** Labels form infinite jump, leading to undefined behavior.
+**Explanation:** 
+
+Labels form infinite jump, leading to undefined behavior.
 
 ---
 
@@ -1048,10 +1071,14 @@ int main()
 
 **Output:**
 ```
-c++
+<no output>
 ```
 **Explanation:** 
-Conditions manipulate `i` and `j`. Final branch prints `c++`.
+
+- i++ → post-increment: uses 5, then i = 6
+- --j → pre-decrement: j = 5
+- Compare: 5 < 5 → false
+- Since the first if is false, the inner if blocks are skipped entirely.
 
 ---
 
@@ -1078,11 +1105,15 @@ int main()
 Compilation error (typo: `pritnf`).
 ```
 **Explanation:**
+
 `pritnf` is a typo, it should be `printf`. Otherwise, compilation error.
 
 If you fix the typo (printf), the program runs and outputs 3.
+
 Initially i = 0.
+
 switch(++i) → pre-increment, so i = 1.
+
 → Switch expression value = 1.
 
 Control jumps to case 1.
@@ -1133,6 +1164,7 @@ int main()
 ```
 
 **Explanation:** 
+
 Case `25L` matches integer constant promotion.
 
 ---
@@ -1159,7 +1191,10 @@ int main(){
 }
 ```
 
-**Output:** `15`
+**Output:** 
+```
+15
+```
 
 ---
 
@@ -1184,7 +1219,14 @@ int main(){
 } 
 ```
 
-**Output:** `Hai default Hai case 2 Hai case 3`
+**Output:** 
+```
+Hai default Hai case 2 Hai case 3
+```
+
+**Explanation:**
+
+`case 4:` not there, so print's default case, then no break present and execute upto case 3.
 
 ---
 
@@ -1203,7 +1245,15 @@ int main()
 } 
 ```
 
-**Output:** `Operating System`
+**Output:** 
+```
+Operating System
+```
+**Explanation:**
+- m / n / m → 10 / 20 / 10 → integer division → 0 / 10 = 0
+- Condition is false, so goto o is not executed.
+- printf("Operating "); executes → prints "Operating "
+- Label o: → program continues → printf("System\n"); prints "System"
 
 ---
 
@@ -1220,7 +1270,14 @@ int main()
 
 ### Problem 44
 
-**Q:** Which datatypes can accept `switch`?
+**Q:** Which datatype can accept the switch statement? 
+a) int 
+
+b) char 
+
+c) long 
+
+d) all of the mentioned 
 
 * **Answer:** `d) all of the mentioned`
 
@@ -1244,7 +1301,10 @@ int main()
 } 
 ```
 
-**Output:** Compilation error (case labels must be constant).
+**Output:** 
+```
+Compilation error (case labels must be constant).
+```
 
 ---
 
@@ -1267,7 +1327,10 @@ int main(){
 } 
 ```
 
-**Output:** Compilation error (`true/false` not defined in C).
+**Output:** 
+```
+Compilation error (`true/false` not defined in C).
+```
 
 ---
 
@@ -1286,7 +1349,33 @@ int main()
 } 
 ```
 
-**Output:** Infinite loop printing `1 3 3 3...`
+**Output:** 
+```
+Infinite loop printing `1 3 3 3...`
+```
+
+**Explanation:**
+Prints 1 
+
+goto l1;
+
+Program jumps to label l1.
+
+The line printf("%d ", 2); is skipped.
+
+Label l1: l2:
+
+Two labels together → program continues here.
+
+printf("%d\n", 3);
+
+Prints 3 
+
+goto l2;
+
+Jumps to label l2 → infinite loop
+
+Program keeps printing 3 forever.
 
 ---
 
@@ -1305,9 +1394,13 @@ int main()
 } 
 ```
 
-**Output:** `Hello`
+**Output:**
+```
+Hello
+```
 
-**Explanation:** `'0'` ASCII value is 48. `i==0`, so condition false, but label still executes.
+**Explanation:** 
+`'0'` ASCII value is 48. `i==0`, so condition false, but label still executes.
 
 ---
 
@@ -1324,9 +1417,38 @@ int main()
 } 
 ```
 
-**Output:** `true 16 26 0`
+**Output:** 
+```
+true
+16 26 2
+```
 
-**Explanation:** Nested ternary increments `m` and `n`. `p` unaffected.
+**Explanation:** 
+Initial values: m = 15, n = 25, p = 0
+
+Outer ternary: 1 > 0 ? (m < n ? m++, n++ : m++), p++ : m++, p++
+
+1 > 0 → true → evaluate true branch: (m < n ? m++, n++ : m++), p++
+
+Inner ternary: m < n ? m++, n++ : m++, p++
+
+m < n → 15 < 25 → true → execute m++, n++
+
+m++ → m = 16
+
+n++ → n = 26
+
+Outer comma operator:
+
+After inner ternary, p++ executes → p = 1
+
+Due to evaluation order, p++ executes again → p = 2
+
+if condition:
+
+Value of last expression (p++) is non-zero → true → prints "true"
+
+Prints updated values: 16 26 2
 
 ---
 
@@ -1346,9 +1468,20 @@ int main()
 }  
 ```
 
-**Output:** `1`
+**Output:**
+```
+compilation error
+```
 
-**Explanation:** Condition true. `i==--i` false, so `i=1`.
+**Explanation:** 
+The ternary operator (? :) has higher precedence than = in C.
+
+So the compiler parses it as:
+
+i == (--i ? i = 0 : i) = 1;  // This is invalid
+
+
+The left side of = must be an lvalue (something you can assign to), but here it is not → compilation error.
 
 ---
 
