@@ -256,28 +256,38 @@ Factorial of 5 is: 120
 ## 8.  Check if a number is Armstrong number 
 
 ```c
-#include<stdio.h>   
-int main()     
-{     
-int n; 
-int r; 
-int sum=0; 
-int temp;     
-printf("Enter a number \n");     
-scanf("%d",&n);     
-temp=n;     
-while(n>0)     
-{     
-r=n%10;     
-sum=sum+(r*r*r);     
-n=n/10;     
-}     
-if(temp == sum)     
-printf("Number is a armstrong number\n");     
-else     
-printf("Number is NOT a armstrong number\n");     
-return 0;   
-} 
+#include <stdio.h>
+#include <math.h>  // for pow()
+
+int main() {
+    int n, temp, sum = 0, r, digits = 0;
+    printf("Enter a number: ");
+    scanf("%d", &n);
+    temp = n;
+    
+    // Step 1: Count number of digits
+    while (temp > 0) {
+        digits++;
+        temp /= 10;
+    }
+    temp = n;  // restore original number
+    
+    // Step 2: Calculate sum of each digit raised to 'digits'
+    while (temp > 0) {
+        r = temp % 10;
+        sum += pow(r, digits);
+        temp /= 10;
+    }
+    
+    // Step 3: Check
+    if (sum == n)
+        printf("%d is an Armstrong number\n", n);
+    else
+        printf("%d is NOT an Armstrong number\n", n);
+    
+    return 0;
+}
+
 ```
 
 **Output:**
