@@ -169,13 +169,16 @@ int main() {
 **Output:**
 
 ```
--128
+127
 ```
 
 **Explanation:**
 
-* Loop runs until `i=-128`, then stops.
-* After loop, `i--` makes it `-129` but due to `char` overflow → prints `-128` (implementation-defined).
+* char i is usually a signed 8-bit variable → range -128 to 127.
+* The loop runs until i = -128, then stops.
+* After the loop, i-- makes it -129, but this overflows since char can’t store it.
+* In two’s complement, -129 wraps around to 127.
+* printf("%d", i); prints 127.
 
 ---
 
@@ -425,15 +428,15 @@ int main(){
 **Output:**
 
 ```
-0
+Floating point exception
 ```
 
 **Explanation:**
 
-* Iteration 1: `no=10/20=0`.
-* After that, `no` remains 0.
-* Loop runs until `c` decreases to -1 and then exits.
-* Prints 0.
+* First iteration: no = 10 / 20 = 0.
+* After that, no remains 0.
+* Loop continues until c goes down to 0.
+* When c = 0, statement no /= c tries 0 / 0 → undefined behavior (division by zero).
 
 ---
 
@@ -457,19 +460,25 @@ int main()
 
 ```
 a
+a
 b
 c
-...
- d ... (up to 'c')
-3
+5
+
 ```
 
 **Explanation:**
 
-* The loop is `do…while`, so it executes at least once.
-* Initially `i=1, ch='a'`. Prints `a`.
-* Condition: `i++<2 || ++ch<100`. Post-increment allows continuation.
-* Loop runs until `ch` crosses ASCII 99. Final `i=3` printed.
+* i = 1, ch = 'a' (97)
+* 1st iteration: prints 'a'.
+* Condition: i++ < 2 → true (i=2), so ++ch not executed.
+* 2nd iteration: prints 'a'.
+* Condition: i++ < 2 → false (i=3), so check ++ch → 'b'(98) < 100 → true.
+* 3rd iteration: prints 'b'.
+* Condition: i++ < 2 → false (i=4), ++ch → 'c'(99) < 100 → true.
+* 4th iteration: prints 'c'.
+* Condition: i++ < 2 → false (i=5), ++ch → 'd'(100) < 100 → false → loop ends.
+* Finally, prints i = 5.
 
 ---
 
@@ -723,13 +732,12 @@ int main()
 **Output:**
 
 ```
-hai
+Error
 ```
 
 **Explanation:**
 
-* Code invalid: `r<p` uses undeclared `p`. Assuming typo → maybe `r<s && s&p`. As written, it won’t compile.
-* If corrected: The condition fails initially and only `hai` prints.
+* Code invalid: `r<p` uses undeclared `p`. 
 
 ---
 
@@ -776,14 +784,19 @@ int main()
 **Output:**
 
 ```
-0
+1
 ```
 
 **Explanation:**
 
-* `unsigned int` wraps around after 65535 to 0.
-* Loop continues until `i` overflows to 0.
-* After exit, `i=0`. Prints 0.
+- `i = 65000` (unsigned int, range `0` to `4294967295` on 32-bit systems).
+- Loop: `while (i++ != 0);`
+- Compares old value of `i` with `0`.
+- Increments `i` after comparison.
+- Loop keeps running until `i` wraps around to `0`.
+- When `i = 4294967295`, `i++` → compare `4294967295 != 0` (true), then `i = 0`.
+- Next iteration: `i++` → compare `0 != 0` (false), then `i = 1`. Loop exits.
+- Finally, `printf("%u", i);` prints `1`.
 
 ---
 
@@ -810,15 +823,22 @@ int main()
 **Output:**
 
 ```
-Infinite printing of "Yes"
+YesYesYesYesYesYesYesYesYesYes
 ```
 
 **Explanation:**
 
-* Initially `i=1`. Then `j=--i=0`.
-* Condition `j<10` true, prints `Yes`.
-* But note: `printf("Yes", j++)` ignores `j`. Only prints `Yes`.
-* Since `i` never changes after first decrement, `j` keeps being `0`. Infinite loop.
+- `i = 1`, `j` uninitialized.
+- First iteration:
+  - `if (i)` true → `j = --i` → `i = 0`, `j = 0`.
+  - `j < 10` true → prints `"Yes"`, then `j = 1`.
+- Subsequent iterations:
+  - `i = 0` → first `if` skipped.
+  - Each time `j < 10` → prints `"Yes"`, increments `j`.
+- When `j = 10`, condition `j < 10` becomes false → `break;` executes.
+- Loop exits and program ends.
+- Note: `printf("Yes", j++);` is undefined behavior (extra argument without format specifier).
+- On most compilers it still prints `"Yes"` 10 times, concatenated with no spaces or newlines.
 
 ---
 
@@ -838,14 +858,19 @@ int main()
 **Output:**
 
 ```
-loop
+Floating point exception (core dumped)
+
 ```
 
 **Explanation:**
 
-* `do while` executes once.
-* Condition `(a/=2 && 0)` → always 0 (because `&&0` false).
-* Loop exits after 1 execution.
+* a = 15 initially.
+* do...while executes the body at least once → prints "loop".
+* Condition: a /= 2 && 0
+* && has higher precedence than /=
+* So it becomes a /= (2 && 0)
+* (2 && 0) = 0 → a /= 0
+* Division by zero → undefined behavior (usually runtime error: Floating point exception).
 
 ---
 
@@ -866,13 +891,31 @@ int main()
 **Output:**
 
 ```
-a=7
+a=8
 ```
 
 **Explanation:**
-Nested loops execute. For `i=4` and `j=1`, final assignment is
-`a=4+1+3=8`. But due to last decrement `j=0`, last executed value is
-`a=7`. Final print: `7`.
+- Variables: `i, j, a`. `a` will be assigned inside the inner loop.  
+- Outer loop: `i = 0` to `4`.  
+- i = 0: inner loop skipped (`j = 0 > 0` false).  
+- i = 1: inner loop `j = 1` → `a = 1 + 1 + 3 = 5`.  
+- i = 2:
+    - inner loop `j = 2 → 1`  
+    - `j = 2`: `a = 2 + 2 + 3 = 7`  
+    - `j = 1`: `a = 2 + 1 + 3 = 6`  
+- i = 3:
+    - inner loop `j = 3 → 1`  
+    - `j = 3`: `a = 3 + 3 + 3 = 9`  
+    - `j = 2`: `a = 3 + 2 + 3 = 8`  
+    - `j = 1`: `a = 3 + 1 + 3 = 7`  
+- i = 4:
+    - inner loop `j = 4 → 1`  
+    - `j = 4`: `a = 4 + 4 + 3 = 11`  
+    - `j = 3`: `a = 4 + 3 + 3 = 10`  
+    - `j = 2`: `a = 4 + 2 + 3 = 9`  
+    - `j = 1`: `a = 4 + 1 + 3 = 8`  
+- Final value of `a` after loops: `8`.  
+- `printf("a=%d\n", a);` prints:  
 
 ---
 
@@ -903,11 +946,16 @@ hi
 hello
 hello
 hello
+hello
 ```
 
 **Explanation:**
-Outer while runs with `i=0`. Inside, `i+=i*2=0`. Prints `hi`. Inner loop
-increments i until 4, printing `hello` thrice.
+* i starts at 0.
+* Outer while (i < 4) runs once.
+* i += i*2 → i = 0.
+* Prints "hi".
+* Inner while (i < 4) increments i from 0 to 4, printing "hello" each time.
+* After inner loop, i = 4 → outer loop ends.
 
 ---
 
@@ -944,13 +992,20 @@ int main()
 **Output:**
 
 ```
-16, 6
+64, 6
 ```
 
-**Explanation:**\
-Comma operator evaluates last condition `j<6`. Loop runs while `j<6`.
-Each iteration doubles `i` and increments `j`. After loop, `i=16`,
-`j=6`.
+**Explanation:**
+* Initial values: i = 1, j = 0
+| Iteration | `i *= 2` | `j = j + 1` | `i` | `j` |
+| --------- | -------- | ----------- | --- | --- |
+| 1         | 1\*2     | 0+1         | 2   | 1   |
+| 2         | 2\*2     | 1+1         | 4   | 2   |
+| 3         | 4\*2     | 2+1         | 8   | 3   |
+| 4         | 8\*2     | 3+1         | 16  | 4   |
+| 5         | 16\*2    | 4+1         | 32  | 5   |
+| 6         | 32\*2    | 5+1         | 64  | 6   |
+* Now j = 6 → condition j < 6 false → loop ends
 
 ---
 
@@ -1006,12 +1061,14 @@ int main()
 **Output:**
 
 ```
-1 3 5 7 9 ;
+1 3 5
 ```
 
 **Explanation:**
-ASCII of `'1'` = 49. Condition holds until `c=59` (`';'`). Prints every
-2 steps.
+* c starts at '1' (ASCII 49).
+* Loop condition: c < 53 || c < 54 && c < 55 → simplifies to c < 54.
+* Each iteration, c is printed and incremented by 2.
+* Iterations: '1' → '3' → '5' → next c = '7' → condition false → loop ends.
 
 ---
 
@@ -1130,7 +1187,7 @@ int main()
 **Output:**
 
 ```
-    0,3
+    0,0
     1,1
     2,2
     3,3
@@ -1138,8 +1195,11 @@ int main()
 ```
 
 **Explanation:**
-Inner loop continues until `j==k` (break). If `k>=3`, inner loop
-finishes at `j=3`. Values printed accordingly.
+* Outer loop: k = 0 to 4
+* Inner loop: j = 0 to 2
+* If j != k → continue (skip to next j)
+* If j == k → break (exit inner loop)
+* If k >= 3, inner loop never finds j == k, so j ends at 3
 
 ---
 
@@ -1163,14 +1223,13 @@ int main()
 **Output:**
 
 ```
-    (infinite loop)
+1
 ```
 
 **Explanation:**
-`char ch=257;` → overflow → `ch=1`. In loop, `if(ch>2)` false, so prints
-`1`. Then loop checks `ch>>2=0`? But `continue;` causes skipping
-increment (none here). Since `ch` never changes, infinite loop results.
-Some compilers may warn about this.
+* Assigning 257 to char causes overflow → becomes 1.
+* Loop executes once because (ch >> 2) = 0 after the first iteration.
+* "1" is printed.
 
 ---
 
@@ -1231,20 +1290,14 @@ int main()
 }
 ``` 
 
-**Output: (infinite loop)**
+**Output:**
 ```
-bye
-welcome
-bye
-welcome
-...
+Error
 ```
 
 **Explanation:**  
-- `s = 0`.  
-- Condition `while(!s)` → true, infinite loop.  
-- `~0 = -1`.  
-- `case -1` executes → prints `"bye"` and falls into `default` → prints `"welcome"`. 
+error: multiple default labels in one switch
+
 ---
 
 ## Problem 43
@@ -1267,13 +1320,12 @@ int main()
 **Output:**
 
 ```
-22 18 17 21 20 16 19 23 26 30 29 25 ...
+Error
 ```
 
 **Explanation:**  
-- XOR operations with float → implicitly converted to int.  
-- `a` keeps increasing because of loop.  
-- Prints XOR results for each iteration until overflow. (Practically infinite).  
+* Bitwise operators cannot be applied to float or double in C.
+* Always use integers with ^, &, |, <<, >>.  
 
 ---
 
@@ -1353,14 +1405,14 @@ int main()
 **Output:**
 
 ```
-ch= 147 , ch1= -67
+ch= -109 , ch1= -67
 ```
 
 **Explanation:**  
-- `ch = 147`.  
-- `ch1 = 66`.  
-- `~ch1 = ~66 = -67`.
-- 
+* ch = 'b' + '1' → 98 + 49 = 147 → exceeds signed char range → overflow → ch = -109
+* ch1 = 'b' - 32 → 98 - 32 = 66
+* ~ch1 → bitwise NOT of 66 → -67
+
 ---
 
 ## Problem 47
