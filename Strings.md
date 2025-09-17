@@ -763,6 +763,89 @@ Length: 3
 
 ---
 
+## 18. Program to remove all whitespaces (spaces, tabs) from a string.
+
+```
+#include <stdio.h>
+
+int main() {
+    char str[100], result[100];
+    int i = 0, j = 0;
+
+    printf("Enter a string: ");
+    scanf(" %[^\n]s", str);  // Reads the whole line including spaces
+
+    // Remove whitespaces
+    while (str[i] != '\0') {
+        if (str[i] != ' ' && str[i] != '\t') {
+            result[j++] = str[i];
+        }
+        i++;
+    }
+    result[j] = '\0';
+
+    printf("String without whitespaces: %s\n", result);
+
+    return 0;
+}
+
+```
+
+**Output:**
+```
+Enter a string: I   Love     C     Programming
+String without whitespaces: ILoveCProgramming
+```
+---
+
+## 19. Program to read a string from the user and removes all extra spaces, leaving only one space between words.
+
+```
+#include <stdio.h>
+
+int main() 
+{
+    char str[200], result[200];
+    int i = 0, j = 0;
+    int flag = 0;  // 1 if previous char was space
+
+    printf("Enter a string: ");
+    scanf(" %[^\n]s", str);  // Read full line including spaces
+
+    while (str[i] != '\0') 
+    {
+        if (str[i] != ' ') 
+        {
+            result[j++] = str[i];
+            flag = 0;
+        } else 
+        {
+            if (flag == 0) 
+            { // first space
+                result[j++] = ' ';
+                flag = 1;
+            }
+            // else skip extra spaces
+        }
+        i++;
+    }
+    result[j] = '\0';
+
+    printf("String with single spaces: %s\n", result);
+
+    return 0;
+}
+
+```
+
+**Output:**
+```
+Enter a string: I   Love     C     Programming
+String with single spaces: I Love C Programming
+```
+
+---
+
 [🔼 Back to Top](#strings-in-c) | [⬅ Back to Table of Contents](README.md)
 
 ---
