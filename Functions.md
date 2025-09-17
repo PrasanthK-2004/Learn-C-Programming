@@ -6,3 +6,11 @@
 
 ---
 ## 1.
+
+
+---
+
+[🔼 Back to Top](#sorting-algorithm-in-c) | [⬅ Back to Table of Contents](README.md)
+
+---
+## The End
