@@ -8,7 +8,7 @@
 
 ## 1. No Return Type (Void Function) without Arguments
 
-```
+```c
 #include <stdio.h>
 
 void greet();//Funtion Declaration (prototype)
@@ -34,7 +34,7 @@ Hello!
 
 ## 2. No Return Type (Void Function) with Arguments
 
-```
+```c
 #include <stdio.h>
 
 void greetUser(char name[], int age); // Function declaration 
@@ -73,7 +73,7 @@ Hello Prasanth! You are 21 years old.
 
 ## 3. Return Type without Arguments
 
-```
+```c
 #include <stdio.h>
 
 int getNumber();// Function declaration 
@@ -110,7 +110,7 @@ You entered: 100
 
 ## 4. Return Type with Arguments
 
-```
+```c
 #include <stdio.h>
 
 int addNumbers(int a, int b);// Function declaration 
@@ -154,7 +154,7 @@ Sum = 30
 
 **Factorial of a Number:**
 
-```
+```c
 #include <stdio.h>
 
 int factorial(int n); // Function declaration
@@ -199,7 +199,7 @@ Factorial of 5 = 120
 * Though the inlining still depends on the compiler’s optimization level.
 
 ### Square of a Number
-```
+```c
 #include <stdio.h>
 
 static inline int square(int x) // Inline function declaration and definition
@@ -231,7 +231,7 @@ Square = 25
 
 ## 7. Program to design a basic calculator using functions.
 
-```
+```c
 #include <stdio.h>
 
 int add(int a, int b) {
@@ -317,9 +317,9 @@ Result: 10 - 5 = 5
 
 ---
 
-## 1.
+## 8.
 
-```
+```c
 
 ```
 
@@ -331,9 +331,9 @@ Result: 10 - 5 = 5
 
 ---
 
-## 1.
+## 
 
-```
+```c
 
 ```
 
