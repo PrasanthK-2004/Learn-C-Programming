@@ -765,7 +765,7 @@ Length: 3
 
 ## 18. Program to remove all whitespaces (spaces, tabs) from a string.
 
-```
+```c
 #include <stdio.h>
 
 int main() {
@@ -800,7 +800,7 @@ String without whitespaces: ILoveCProgramming
 
 ## 19. Program to read a string from the user and removes all extra spaces, leaving only one space between words.
 
-```
+```c
 #include <stdio.h>
 
 int main() 
