@@ -15,3 +15,4 @@ PrasanthK-2004/Learn-C-Programming
 ## - [Programs on Arrays](Arrays.md)
 ## - [Programs on Strings](Strings.md)
 ## - [Sorting Algorithm](Sorting.md)
+## - [Programs on Functions](Functions.md)
