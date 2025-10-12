@@ -1185,7 +1185,8 @@ int main()
 **Output:**
 
 ```
-0x1006
+error: initialization of 'short int *' from incompatible pointer type 'char *' [-Wincompatible-pointer-types]
+
 ```
 
 **Explanation:**
