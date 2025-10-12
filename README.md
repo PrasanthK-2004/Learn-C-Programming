@@ -13,5 +13,5 @@ PrasanthK-2004/Learn-C-Programming
 ## - [Basic Programs to improve Logical Thinking](Basic%20Programs.md)
 ## - [50 example problems for Pointers](Pointers.md)
 ## - [Programs on Arrays](Arrays.md)
-## - [Programs on Strings](Sorting.md)
+## - [Programs on Strings](Strings.md)
 ## - [Sorting Algorithm](Sorting.md)
