@@ -438,23 +438,51 @@ I evoL C gnimmargorP
 ---
 
 ## 11. Program to concatenate two strings with a space in between.
+
 ```c
 #include <stdio.h>
-#include <string.h>
 
-int main() {
-    char str1[200], str2[100];
+int main() 
+{
+    char str1[100], str2[100], result[201];
+    int i = 0, j = 0;
 
     printf("Enter first string: ");
     scanf("%s", str1);
 
     printf("Enter second string: ");
     scanf("%s", str2);
-
+/*
     strcat(str1, " ");   // add space
     strcat(str1, str2);  // append str2
 
     printf("Concatenated string: %s\n", str1);
+
+*/
+
+    // Copy str1 to result
+    while (str1[i] != '\0') 
+    {
+        result[i] = str1[i];
+        i++;
+    }
+
+    // Add a space
+    result[i] = ' ';
+    i++;
+
+    // Append str2 to result
+    while (str2[j] != '\0') 
+    {
+        result[i] = str2[j];
+        i++;
+        j++;
+    }
+
+    // Add null terminator
+    result[i] = '\0';
+
+    printf("Concatenated string: %s\n", result);
 
     return 0;
 }
