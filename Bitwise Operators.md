@@ -375,9 +375,9 @@ int main() {
 ```
 **Output**
 ```
+Enter a number: 10
 Original : 10 (0xA)
 After Swap: 2684354560 (0xA0000000)
-
 ```
 
 ---
@@ -414,7 +414,10 @@ int main() {
 ```
 **Output**
 ```
-Extracted 4 bits from position 3: 5
+Enter number M: 10
+Enter starting position N: 2
+Enter number of bits P to extract: 2
+Extracted 2 bits from position 2: 2
 
 ```
 ---
