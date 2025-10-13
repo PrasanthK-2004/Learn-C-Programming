@@ -337,7 +337,10 @@ int main() {
 ```
 **Output**
 ```
-Result after deleting bits: 28
+Enter number: 127
+Enter position to start deleting bits: 5
+Enter number of bits to delete: 4
+Result after deleting bits: 31
 
 ```
 ---
