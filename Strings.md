@@ -441,6 +441,7 @@ I evoL C gnimmargorP
 
 ```c
 #include <stdio.h>
+#include <string.h>
 
 int main() 
 {
