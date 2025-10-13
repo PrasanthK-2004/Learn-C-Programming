@@ -441,9 +441,9 @@ int main() {
 ```
 **Output**
 ```
-Original: 15 
-After clearing bit 1: 13 
-
+Enter a number: 10
+Original : 10 (0xA)
+After Swap: 2684354560 (0xA0000000)
 ```
 
 ---
