@@ -382,7 +382,7 @@ After Swap: 2684354560 (0xA0000000)
 
 ---
 
-## 15. Write a logic to extract  P bits from Posion N in an integer M  
+## 15. Write a logic to extract  P bits from Position N in an integer M  
 
 ```c
 #include <stdio.h>
