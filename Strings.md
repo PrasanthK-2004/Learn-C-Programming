@@ -358,7 +358,10 @@ int main() {
         // When we reach a space or start of string → word boundary
         if (str[i] == ' ' || i == 0) {
             // Word starts from i (if i==0) else i+1
-            start = (i == 0) ? 0 : i + 1;
+            if (i == 0)
+                start = 0;
+            else
+                start = i + 1;
 
             // Print the word
             for (int j = start; j <= end; j++) {
@@ -402,14 +405,15 @@ int main() {
     scanf("%[^\n]", str);   // read input including spaces
 
     len = strlen(str);
+    start = 0;  // initialize start before loop
 
     for (i = 0; i <= len; i++) {
         // when space or end of string → end of a word
         if (str[i] == ' ' || str[i] == '\0') {
             end = i - 1;
 
-            // reverse the word using a for loop
-            for (j = start, end; j < end; j++, end--) {
+            // reverse the current word
+            for (j = start; j < end; j++, end--) {
                 char temp = str[j];
                 str[j] = str[end];
                 str[end] = temp;
