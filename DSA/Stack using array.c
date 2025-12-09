@@ -1,22 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
-
 #define MAX 5
-
 int stack[MAX];
 int top = -1;
 
-/* Function prototypes */
 void push();
 void pop();
 void peek();
 void display();
 
-/* ---------------- MAIN ---------------- */
 int main()
 {
     int choice;
-
     while (1)
     {
         printf("\n------ STACK MENU ------\n");
@@ -40,7 +35,6 @@ int main()
     }
 }
 
-/* -------- PUSH OPERATION -------- */
 void push()
 {
     int item;
@@ -57,7 +51,6 @@ void push()
     printf("Pushed %d\n", item);
 }
 
-/* -------- POP OPERATION -------- */
 void pop()
 {
     if (top == -1)
@@ -65,11 +58,9 @@ void pop()
         printf("Stack Underflow\n");
         return;
     }
-
     printf("Popped element: %d\n", stack[top--]);
 }
 
-/* -------- PEEK -------- */
 void peek()
 {
     if (top == -1)
@@ -77,11 +68,9 @@ void peek()
         printf("Stack empty\n");
         return;
     }
-
     printf("Top element: %d\n", stack[top]);
 }
 
-/* -------- DISPLAY -------- */
 void display()
 {
     if (top == -1)
@@ -89,7 +78,6 @@ void display()
         printf("Stack empty\n");
         return;
     }
-
     printf("Stack elements:\n");
     for (int i = top; i >= 0; i--)
         printf("%d\n", stack[i]);
