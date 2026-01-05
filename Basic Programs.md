@@ -311,43 +311,53 @@ Number is NOT a armstrong number
 #include <stdio.h>
 #include <math.h>
 
-int main() {
-    int start, end, num, temp, r, sum;
+int main()
+{
+    int start, end, num, temp, digit, count, sum;
 
-    // Input range from user
-    printf("Enter starting number: ");
-    scanf("%d", &start);
-    printf("Enter ending number: ");
-    scanf("%d", &end);
+    printf("Enter start and end range: ");
+    scanf("%d %d", &start, &end);
 
     printf("Armstrong numbers between %d and %d are:\n", start, end);
 
-    for(num = start; num <= end; num++) {
+    for(num = start; num <= end; num++)
+    {
         temp = num;
+        count = 0;
         sum = 0;
 
-        while(temp > 0) {
-            r = temp % 10;
-            sum += r * r * r; // cube of digit
+        // Count digits 
+        while(temp != 0)
+        {
+            count++;
             temp /= 10;
         }
 
-        if(sum == num) {
-            printf("%d ", num);
+        temp = num;
+
+        // Calculate Armstrong sum 
+        while(temp != 0)
+        {
+            digit = temp % 10;
+            sum += pow(digit, count);
+            temp /= 10;
         }
+
+        if(sum == num)
+            printf("%d ", num);
     }
 
     return 0;
 }
 
+
 ```
 
 **Output:**
 ```
-Enter starting number: 100
-Enter ending number: 500
-Armstrong numbers between 100 and 500 are:
-153 370 371 407
+Enter start and end range: 1 1000
+Armstrong numbers between 1 and 1000 are:
+1 153 370 371 407
 
 ```
 
